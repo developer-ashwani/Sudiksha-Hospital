@@ -34,54 +34,55 @@ export default function Doctors() {
               </div>
               <div>
                 <div className="bg-primary text-primary-foreground inline-block px-3 py-1 rounded-full text-sm font-medium mb-4">
-                  Chief Ophthalmologist
+                  Senior Consultant Ophthalmologist
                 </div>
                 <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Dr. Priyanka Sharma</h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Board-certified ophthalmologist with over 15 years of experience in comprehensive eye care, cataract surgery, and advanced vision correction procedures.
+                  Senior Consultant at Sudiksha Hospital with 11 years of experience in comprehensive ophthalmology, advanced eye surgeries, and community eye care. Former Senior Resident at NMCH Patna.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-3">Specializations</h4>
+                    <h4 className="font-semibold text-foreground mb-3">Areas of Expertise</h4>
                     <ul className="text-sm text-muted-foreground space-y-2">
-                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Cataract Surgery</li>
-                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Retinal Disorders</li>
-                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Glaucoma Treatment</li>
-                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>LASIK Surgery</li>
-                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Pediatric Ophthalmology</li>
+                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Cataract Treatment & Surgeries</li>
+                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Oculoplasty & Eyelid Surgery</li>
+                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Cornea Care & Management</li>
+                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Glaucoma Diagnosis</li>
+                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Pediatric Eye Care</li>
+                      <li className="flex items-center"><i className="fas fa-check text-primary mr-2"></i>Eye Injury Management</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-3">Qualifications</h4>
+                    <h4 className="font-semibold text-foreground mb-3">Education & Experience</h4>
                     <ul className="text-sm text-muted-foreground space-y-2">
-                      <li className="flex items-center"><i className="fas fa-graduation-cap text-primary mr-2"></i>MBBS, MS Ophthalmology</li>
-                      <li className="flex items-center"><i className="fas fa-graduation-cap text-primary mr-2"></i>Fellowship in Vitreoretinal Surgery</li>
-                      <li className="flex items-center"><i className="fas fa-certificate text-primary mr-2"></i>Member, All India Ophthalmological Society</li>
-                      <li className="flex items-center"><i className="fas fa-award text-primary mr-2"></i>Excellence Award in Eye Care</li>
+                      <li className="flex items-center"><i className="fas fa-graduation-cap text-primary mr-2"></i>MBBS, MS (Ophthalmology)</li>
+                      <li className="flex items-center"><i className="fas fa-university text-primary mr-2"></i>KGMC, Lucknow Graduate</li>
+                      <li className="flex items-center"><i className="fas fa-hospital text-primary mr-2"></i>Former Senior Resident, NMCH Patna</li>
+                      <li className="flex items-center"><i className="fas fa-clock text-primary mr-2"></i>11 Years Clinical Experience</li>
                     </ul>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-6 mb-6 p-4 bg-card rounded-lg">
                   <div>
-                    <div className="text-2xl font-bold text-primary">15+</div>
+                    <div className="text-2xl font-bold text-primary">11+</div>
                     <div className="text-sm text-muted-foreground">Years Experience</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary">5000+</div>
-                    <div className="text-sm text-muted-foreground">Surgeries</div>
+                    <div className="text-2xl font-bold text-primary">1000+</div>
+                    <div className="text-sm text-muted-foreground">Eye Surgeries</div>
                   </div>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button 
-                    className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center"
+                    className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center text-sm"
                     data-testid="book-dr-priyanka"
                     onClick={handleBookDrPriyanka}
                   >
                     <i className="fas fa-calendar-plus mr-2"></i>
-                    Book Dr. Priyanka
+                    Book Consultation
                   </button>
                   <a 
                     href="https://wa.me/917970838322?text=I%20would%20like%20to%20consult%20with%20Dr.%20Priyanka%20Sharma" 
@@ -109,43 +110,66 @@ export default function Doctors() {
               </div>
               <div className="lg:col-span-2">
                 <div className="bg-blue-100 text-blue-800 inline-block px-3 py-1 rounded-full text-sm font-medium mb-4">
-                  Neuropsychiatrist
+                  Neuropsychiatrist & Mental Health Specialist
                 </div>
                 <h2 className="text-2xl font-heading font-bold text-foreground mb-4">Dr. Vinay Kumar</h2>
                 <p className="text-muted-foreground mb-6">
-                  Experienced neuropsychiatrist specializing in mental health disorders, neurological conditions, and comprehensive psychiatric care with a holistic approach to treatment.
+                  Neuropsychiatrist with 11+ years of experience, former NIMHANS Bengaluru psychiatrist specializing in comprehensive mental healthcare with holistic treatment approach. Expert in de-addiction therapy and family counseling.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-3">Specializations</h4>
+                    <h4 className="font-semibold text-foreground mb-3">Areas of Specialization</h4>
                     <ul className="text-sm text-muted-foreground space-y-2">
-                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Depression & Anxiety</li>
-                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Bipolar Disorder</li>
-                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Schizophrenia</li>
-                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Neurological Disorders</li>
-                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Addiction Treatment</li>
+                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Anxiety, Depression & Stress</li>
+                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>De-addiction Therapy</li>
+                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Child & Adolescent Psychiatry</li>
+                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Memory & Cognitive Disorders</li>
+                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Family Counseling</li>
+                      <li className="flex items-center"><i className="fas fa-check text-blue-600 mr-2"></i>Neuropsychiatric Disorders</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-3">Experience & Credentials</h4>
+                    <h4 className="font-semibold text-foreground mb-3">Education & Experience</h4>
                     <ul className="text-sm text-muted-foreground space-y-2">
-                      <li className="flex items-center"><i className="fas fa-graduation-cap text-blue-600 mr-2"></i>MBBS, MD Psychiatry</li>
-                      <li className="flex items-center"><i className="fas fa-certificate text-blue-600 mr-2"></i>Certified in CBT & DBT</li>
-                      <li className="flex items-center"><i className="fas fa-clock text-blue-600 mr-2"></i>12+ Years Clinical Experience</li>
-                      <li className="flex items-center"><i className="fas fa-users text-blue-600 mr-2"></i>2000+ Patients Treated</li>
+                      <li className="flex items-center"><i className="fas fa-graduation-cap text-blue-600 mr-2"></i>MBBS, MD (Psychiatry) - MGIMS Sevagram</li>
+                      <li className="flex items-center"><i className="fas fa-certificate text-blue-600 mr-2"></i>PGDCFT, MIPS, CHRE (UK)</li>
+                      <li className="flex items-center"><i className="fas fa-hospital text-blue-600 mr-2"></i>Former NIMHANS, Bengaluru</li>
+                      <li className="flex items-center"><i className="fas fa-clock text-blue-600 mr-2"></i>11+ Years Experience</li>
                     </ul>
                   </div>
                 </div>
                 
-                <button 
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center"
-                  data-testid="book-dr-vinay"
-                  onClick={handleBookDrVinay}
-                >
-                  <i className="fas fa-calendar-plus mr-2"></i>
-                  Book Consultation
-                </button>
+                <div className="grid grid-cols-2 gap-6 mb-6 p-4 bg-card rounded-lg">
+                  <div>
+                    <div className="text-2xl font-bold text-primary">11+</div>
+                    <div className="text-sm text-muted-foreground">Years Experience</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-primary">2000+</div>
+                    <div className="text-sm text-muted-foreground">Patients Treated</div>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button 
+                    className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center"
+                    data-testid="book-dr-vinay"
+                    onClick={handleBookDrVinay}
+                  >
+                    <i className="fas fa-calendar-plus mr-2"></i>
+                    Book Consultation
+                  </button>
+                  <a 
+                    href="https://wa.me/917970838322?text=I%20would%20like%20to%20consult%20with%20Dr.%20Vinay%20Kumar" 
+                    className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+                    data-testid="whatsapp-dr-vinay"
+                    onClick={() => trackEvent('whatsapp_dr_vinay', 'contact', 'doctors_page')}
+                  >
+                    <i className="fab fa-whatsapp mr-2"></i>
+                    WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
           </div>

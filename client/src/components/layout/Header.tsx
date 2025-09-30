@@ -19,7 +19,6 @@ export default function Header() {
     { href: "/doctors", label: "Doctors" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
-    { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Blog" }
   ];
 
@@ -35,7 +34,7 @@ export default function Header() {
             />
             <div>
               <h1 className="text-xl font-heading font-bold text-primary">Sudiksha Hospital</h1>
-              <p className="text-xs text-muted-foreground">Excellence in Eye Care</p>
+              <p className="text-xs text-muted-foreground">Mental Health & Eye Care</p>
             </div>
           </Link>
           

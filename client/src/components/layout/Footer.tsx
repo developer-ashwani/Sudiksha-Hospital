@@ -18,8 +18,8 @@ export default function Footer() {
                 className="w-10 h-10 rounded-lg mr-3 object-contain"
               />
               <div>
-                <h3 className="text-xl font-heading font-bold text-primary">Sudiksha Hospital</h3>
-                <p className="text-sm opacity-75">Excellence in Eye Care</p>
+            <h3 className="text-xl font-heading font-bold text-primary">Sudiksha Hospital</h3>
+            <p className="text-sm opacity-75">Excellence in Eye Care & Mental Health</p>
               </div>
             </div>
             <p className="text-sm opacity-75 mb-4">
@@ -58,7 +58,6 @@ export default function Footer() {
               <li><a href="/doctors" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Our Doctors</a></li>
               <li><a href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Services</a></li>
               <li><a href="/contact" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Contact Us</a></li>
-              <li><a href="/faq" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">FAQ</a></li>
               <li><a href="/blog" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Health Blog</a></li>
             </ul>
           </div>
@@ -67,12 +66,14 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Medical Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><span className="opacity-75">Cataract Surgery</span></li>
-              <li><span className="opacity-75">LASIK Surgery</span></li>
-              <li><span className="opacity-75">Retinal Treatment</span></li>
-              <li><span className="opacity-75">Glaucoma Care</span></li>
-              <li><span className="opacity-75">Psychiatric Consultation</span></li>
-              <li><span className="opacity-75">Emergency Eye Care</span></li>
+              <li><span className="opacity-75">Cataract Treatment & Surgeries</span></li>
+              <li><span className="opacity-75">Oculoplasty & Eyelid Surgery</span></li>
+              <li><span className="opacity-75">Cornea Care & Management</span></li>
+              <li><span className="opacity-75">Glaucoma Diagnosis</span></li>
+              <li><span className="opacity-75">Anxiety & Depression Treatment</span></li>
+              <li><span className="opacity-75">De-addiction Therapy</span></li>
+              <li><span className="opacity-75">Child & Adolescent Psychiatry</span></li>
+              <li><span className="opacity-75">Family Counseling</span></li>
             </ul>
           </div>
           

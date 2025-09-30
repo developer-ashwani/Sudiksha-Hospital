@@ -25,115 +25,126 @@ export default function DoctorProfile() {
           </p>
         </div>
         
-        {/* Dr. Priyanka Sharma - Featured */}
-        <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 mb-12">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Dr. Priyanka Sharma */}
+          <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-6 shadow-lg">
+            <div className="text-center mb-6">
               <img 
                 src="/images/dr-priyanka-sharma.png"
                 alt="Dr. Priyanka Sharma - Chief Ophthalmologist" 
-                className="rounded-xl shadow-lg w-full h-auto"
+                className="rounded-xl shadow-lg w-32 h-32 object-cover mx-auto mb-4"
               />
-            </div>
-            <div>
-              <div className="bg-primary text-primary-foreground inline-block px-3 py-1 rounded-full text-sm font-medium mb-4">
-                Chief Ophthalmologist
+              <div className="bg-primary text-primary-foreground inline-block px-3 py-1 rounded-full text-sm font-medium mb-3">
+                Senior Consultant Ophthalmologist
               </div>
-              <h3 className="text-3xl font-heading font-bold text-foreground mb-4">Dr. Priyanka Sharma</h3>
-              <p className="text-lg text-muted-foreground mb-6">
-                Board-certified ophthalmologist with over 15 years of experience in comprehensive eye care, cataract surgery, and advanced vision correction procedures.
+              <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Dr. Priyanka Sharma</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Senior Consultant at Sudiksha Hospital with 11 years of experience in comprehensive ophthalmology, advanced eye surgeries, and community eye care.
               </p>
-              
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Specializations</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Cataract Surgery</li>
-                    <li>• Retinal Disorders</li>
-                    <li>• Glaucoma Treatment</li>
-                    <li>• LASIK Surgery</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Qualifications</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• MBBS, MS Ophthalmology</li>
-                    <li>• Fellowship in Vitreoretinal Surgery</li>
-                    <li>• Member, All India Ophthalmological Society</li>
-                  </ul>
-                </div>
+            </div>
+            
+            <div className="space-y-4 mb-6">
+              <div>
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Areas of Expertise</h4>
+                <ul className="text-xs text-muted-foreground space-y-1">
+                  <li>• Cataract Treatment & Surgeries</li>
+                  <li>• Oculoplasty & Eyelid Surgery</li>
+                  <li>• Cornea Care & Management</li>
+                  <li>• Glaucoma Diagnosis</li>
+                  <li>• Pediatric Eye Care</li>
+                  <li>• Eye Injury Management</li>
+                </ul>
               </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center"
-                  data-testid="profile-book-dr-priyanka"
-                  onClick={handleBookDrPriyanka}
-                >
-                  <i className="fas fa-calendar-plus mr-2"></i>
-                  Book Dr. Priyanka
-                </button>
-                <a 
-                  href="https://wa.me/917970838322?text=I%20would%20like%20to%20consult%20with%20Dr.%20Priyanka%20Sharma" 
-                  className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
-                  data-testid="profile-whatsapp-dr-priyanka"
-                  onClick={handleWhatsAppDrPriyanka}
-                >
-                  <i className="fab fa-whatsapp mr-2"></i>
-                  WhatsApp
-                </a>
+              <div>
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Education & Experience</h4>
+                <ul className="text-xs text-muted-foreground space-y-1">
+                  <li>• MBBS, MS (Ophthalmology)</li>
+                  <li>• KGMC, Lucknow Graduate</li>
+                  <li>• Former Senior Resident, NMCH Patna</li>
+                  <li>• 11 Years Clinical Experience</li>
+                </ul>
               </div>
+            </div>
+            
+            <div className="space-y-3">
+              <button 
+                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center text-sm"
+                data-testid="profile-book-dr-priyanka"
+                onClick={handleBookDrPriyanka}
+              >
+                <i className="fas fa-calendar-plus mr-2"></i>
+                Book Consultation
+              </button>
+              <a 
+                href="https://wa.me/917970838322?text=I%20would%20like%20to%20consult%20with%20Dr.%20Priyanka%20Sharma" 
+                className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center text-sm"
+                data-testid="profile-whatsapp-dr-priyanka"
+                onClick={handleWhatsAppDrPriyanka}
+              >
+                <i className="fab fa-whatsapp mr-2"></i>
+                WhatsApp
+              </a>
             </div>
           </div>
-        </div>
-        
-        {/* Dr. Vinay Kumar */}
-        <div className="bg-card rounded-2xl p-8 shadow-lg">
-          <div className="grid lg:grid-cols-3 gap-8 items-center">
-            <div>
+          
+          {/* Dr. Vinay Kumar */}
+          <div className="bg-card rounded-2xl p-6 shadow-lg">
+            <div className="text-center mb-6">
               <img 
                 src="/images/dr-vinay-kumar.png" 
                 alt="Dr. Vinay Kumar - Neuropsychiatrist" 
-                className="rounded-xl shadow-lg w-full h-auto"
+                className="rounded-xl shadow-lg w-32 h-32 object-cover mx-auto mb-4"
               />
-            </div>
-            <div className="lg:col-span-2">
-              <div className="bg-blue-100 text-blue-800 inline-block px-3 py-1 rounded-full text-sm font-medium mb-4">
-                Neuropsychiatrist
+              <div className="bg-blue-100 text-blue-800 inline-block px-3 py-1 rounded-full text-sm font-medium mb-3">
+                Neuropsychiatrist & Mental Health Specialist
               </div>
-              <h3 className="text-2xl font-heading font-bold text-foreground mb-4">Dr. Vinay Kumar</h3>
-              <p className="text-muted-foreground mb-6">
-                Experienced neuropsychiatrist specializing in mental health disorders, neurological conditions, and comprehensive psychiatric care with a holistic approach to treatment.
+              <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Dr. Vinay Kumar</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Neuropsychiatrist with 11+ years of experience, former NIMHANS Bengaluru psychiatrist specializing in comprehensive mental healthcare with holistic treatment approach.
               </p>
-              
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Specializations</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Depression & Anxiety</li>
-                    <li>• Bipolar Disorder</li>
-                    <li>• Schizophrenia</li>
-                    <li>• Neurological Disorders</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Experience</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• 12+ Years Clinical Experience</li>
-                    <li>• MBBS, MD Psychiatry</li>
-                    <li>• Certified in CBT & DBT</li>
-                  </ul>
-                </div>
+            </div>
+            
+            <div className="space-y-4 mb-6">
+              <div>
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Areas of Specialization</h4>
+                <ul className="text-xs text-muted-foreground space-y-1">
+                  <li>• Anxiety, Depression & Stress</li>
+                  <li>• De-addiction Therapy</li>
+                  <li>• Child & Adolescent Psychiatry</li>
+                  <li>• Memory & Cognitive Disorders</li>
+                  <li>• Family Counseling</li>
+                  <li>• Neuropsychiatric Disorders</li>
+                </ul>
               </div>
-              
+              <div>
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Education & Experience</h4>
+                <ul className="text-xs text-muted-foreground space-y-1">
+                  <li>• MBBS, MD (Psychiatry) - MGIMS Sevagram</li>
+                  <li>• PGDCFT, MIPS, CHRE (UK)</li>
+                  <li>• Former NIMHANS, Bengaluru</li>
+                  <li>• 11+ Years Experience</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="space-y-3">
               <button 
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center"
+                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center text-sm"
                 data-testid="profile-book-dr-vinay"
                 onClick={handleBookDrVinay}
               >
                 <i className="fas fa-calendar-plus mr-2"></i>
                 Book Consultation
               </button>
+              <a 
+                href="https://wa.me/917970838322?text=I%20would%20like%20to%20consult%20with%20Dr.%20Vinay%20Kumar" 
+                className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center text-sm"
+                data-testid="profile-whatsapp-dr-vinay"
+                onClick={() => trackEvent('whatsapp_dr_vinay', 'contact', 'doctor_profile')}
+              >
+                <i className="fab fa-whatsapp mr-2"></i>
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>

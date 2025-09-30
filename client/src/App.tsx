@@ -11,7 +11,6 @@ import Home from "@/pages/home";
 import Doctors from "@/pages/doctors";
 import Services from "@/pages/services";
 import Contact from "@/pages/contact";
-import FAQ from "@/pages/faq";
 import Blog from "@/pages/blog";
 import NotFound from "@/pages/not-found";
 
@@ -28,7 +27,6 @@ function Router() {
       <Route path="/doctors" component={Doctors} />
       <Route path="/services" component={Services} />
       <Route path="/contact" component={Contact} />
-      <Route path="/faq" component={FAQ} />
       <Route path="/blog" component={Blog} />
       <Route component={NotFound} />
     </Switch>
