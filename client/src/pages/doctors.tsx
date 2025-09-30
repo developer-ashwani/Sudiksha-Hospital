@@ -1,12 +1,21 @@
+import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import AppointmentForm from "@/components/home/AppointmentForm";
 
 export default function Doctors() {
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState<'dr-priyanka' | 'dr-vinay' | 'any'>('any');
+
   const handleBookDrPriyanka = () => {
     trackEvent('book_dr_priyanka', 'conversion', 'doctors_page');
+    setSelectedDoctor('dr-priyanka');
+    setIsAppointmentModalOpen(true);
   };
 
   const handleBookDrVinay = () => {
     trackEvent('book_dr_vinay', 'conversion', 'doctors_page');
+    setSelectedDoctor('dr-vinay');
+    setIsAppointmentModalOpen(true);
   };
 
   return (
@@ -85,7 +94,7 @@ export default function Doctors() {
                     Book Consultation
                   </button>
                   <a 
-                    href="https://wa.me/917970838322?text=I%20would%20like%20to%20consult%20with%20Dr.%20Priyanka%20Sharma" 
+                    href="https://wa.me/919117217024?text=I%20would%20like%20to%20consult%20with%20Dr.%20Priyanka%20Sharma" 
                     className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
                     data-testid="whatsapp-dr-priyanka"
                     onClick={() => trackEvent('whatsapp_dr_priyanka', 'contact', 'doctors_page')}
@@ -161,7 +170,7 @@ export default function Doctors() {
                     Book Consultation
                   </button>
                   <a 
-                    href="https://wa.me/917970838322?text=I%20would%20like%20to%20consult%20with%20Dr.%20Vinay%20Kumar" 
+                    href="https://wa.me/919117217024?text=I%20would%20like%20to%20consult%20with%20Dr.%20Vinay%20Kumar" 
                     className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
                     data-testid="whatsapp-dr-vinay"
                     onClick={() => trackEvent('whatsapp_dr_vinay', 'contact', 'doctors_page')}
@@ -186,7 +195,7 @@ export default function Doctors() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="tel:+917970838322" 
+                href="tel:+919117217024" 
                 className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
                 data-testid="call-guidance"
                 onClick={() => trackEvent('click_to_call', 'contact', 'doctors_cta')}
@@ -194,7 +203,7 @@ export default function Doctors() {
                 Call for Guidance
               </a>
               <a 
-                href="https://wa.me/917970838322?text=I%20need%20help%20choosing%20the%20right%20doctor" 
+                href="https://wa.me/919117217024?text=I%20need%20help%20choosing%20the%20right%20doctor" 
                 className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                 data-testid="whatsapp-guidance"
                 onClick={() => trackEvent('whatsapp_guidance', 'contact', 'doctors_cta')}
@@ -205,6 +214,13 @@ export default function Doctors() {
           </div>
         </div>
       </div>
+      
+      {/* Appointment Modal */}
+      <AppointmentForm 
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        selectedDoctor={selectedDoctor}
+      />
     </div>
   );
 }

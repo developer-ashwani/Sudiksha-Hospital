@@ -1,16 +1,35 @@
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import AppointmentForm from "@/components/home/AppointmentForm";
 
 export default function Contact() {
   const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState<'dr-priyanka' | 'dr-vinay' | 'any'>('any');
 
   const handleDirectionsClick = () => {
     trackEvent('get_directions', 'navigation', 'contact_page');
+    // Open Google Maps with directions to the hospital
+    const hospitalAddress = "Sudiksha Hospital, 1st Floor, Above IDBI Bank, Near Pramod Laddu Bhandar, Arya Kumar Road, Rajendranagar, Patna, Bihar 800016";
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(hospitalAddress)}`;
+    window.open(mapsUrl, '_blank', 'noopener,noreferrer');
   };
 
   const toggleFaq = (faqId: string) => {
     setExpandedFaq(expandedFaq === faqId ? null : faqId);
     trackEvent('faq_toggle', 'engagement', faqId);
+  };
+
+  const handleBookOphthalmology = () => {
+    trackEvent('book_department', 'conversion', 'ophthalmology');
+    setSelectedDoctor('dr-priyanka');
+    setIsAppointmentModalOpen(true);
+  };
+
+  const handleBookNeuropsychiatry = () => {
+    trackEvent('book_department', 'conversion', 'neuropsychiatry');
+    setSelectedDoctor('dr-vinay');
+    setIsAppointmentModalOpen(true);
   };
 
   const faqs = [
@@ -37,12 +56,12 @@ export default function Contact() {
     {
       id: "emergency-care",
       question: "Do you offer emergency eye care services?",
-      answer: "Yes, we provide 24/7 emergency eye care for conditions like sudden vision loss, eye injuries, severe pain, retinal detachment, or chemical burns. Call our emergency line immediately at +91 79708 38322 for urgent eye problems."
+      answer: "Yes, we provide 24/7 emergency eye care for conditions like sudden vision loss, eye injuries, severe pain, retinal detachment, or chemical burns. Call our emergency line immediately at +91 9117217024 for urgent eye problems."
     },
     {
       id: "appointment-booking",
       question: "How can I book an appointment?",
-      answer: "You can book an appointment by calling us at +91 79708 38322, sending a WhatsApp message, or using our online appointment form. We offer same-day appointments for urgent cases and typically respond to booking requests within 30 minutes."
+      answer: "You can book an appointment by calling us at +91 9117217024, sending a WhatsApp message, or using our online appointment form. We offer same-day appointments for urgent cases and typically respond to booking requests within 30 minutes."
     },
     {
       id: "first-visit",
@@ -81,16 +100,26 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Map Section */}
           <div className="bg-card rounded-xl shadow-lg overflow-hidden">
-            <div className="aspect-video bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
-                <i className="fas fa-map-marker-alt text-primary text-4xl mb-4"></i>
-                <p className="text-muted-foreground">Interactive Map</p>
-                <p className="text-sm text-muted-foreground">Google Maps integration would be embedded here</p>
+            <div className="relative w-full h-[400px] lg:h-[500px] overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8953910493956!2d85.15621507485083!3d25.60839211492417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5909b3767b2f%3A0xe597d176e569b767!2sDr%20Priyanka%20Sharma%20Patna!5e0!3m2!1sen!2sin!4v1759237470347!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sudiksha Hospital Location - Rajendranagar, Patna"
+                className="w-full h-full"
+              ></iframe>
+              {/* Overlay with Get Directions Button */}
+              <div className="absolute top-4 right-4">
                 <button 
-                  className="mt-4 bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+                  className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg"
                   data-testid="directions-button"
                   onClick={handleDirectionsClick}
                 >
+                  <i className="fas fa-directions mr-2"></i>
                   Get Directions
                 </button>
               </div>
@@ -122,12 +151,12 @@ export default function Contact() {
                     <h3 className="font-semibold mb-1">Phone Numbers</h3>
                     <p className="text-muted-foreground">
                       <a 
-                        href="tel:+917970838322" 
+                        href="tel:+919117217024" 
                         className="hover:text-primary transition-colors"
                         data-testid="contact-phone"
                         onClick={() => trackEvent('click_to_call', 'contact', 'contact_page')}
                       >
-                        +91 79708 38322
+                        +91 9117217024
                       </a><br />
                       <span className="text-sm">Available 24/7 for emergencies</span>
                     </p>
@@ -168,7 +197,7 @@ export default function Contact() {
               <h3 className="text-lg font-semibold text-foreground mb-3">Quick Actions</h3>
               <div className="grid grid-cols-2 gap-3">
                 <a 
-                  href="tel:+917970838322" 
+                  href="tel:+919117217024" 
                   className="bg-primary text-primary-foreground p-3 rounded-lg text-center font-medium hover:bg-primary/90 transition-colors"
                   data-testid="quick-call"
                   onClick={() => trackEvent('click_to_call', 'contact', 'quick_actions')}
@@ -177,7 +206,7 @@ export default function Contact() {
                   Call Now
                 </a>
                 <a 
-                  href="https://wa.me/917970838322?text=I%20would%20like%20to%20book%20an%20appointment%20at%20Sudiksha%20Hospital" 
+                  href="https://wa.me/919117217024?text=I%20would%20like%20to%20book%20an%20appointment%20at%20Sudiksha%20Hospital" 
                   className="bg-green-600 text-white p-3 rounded-lg text-center font-medium hover:bg-green-700 transition-colors"
                   data-testid="quick-whatsapp"
                   onClick={() => trackEvent('whatsapp_contact', 'contact', 'quick_actions')}
@@ -216,7 +245,7 @@ export default function Contact() {
                 <button 
                   className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
                   data-testid="book-ophthalmology"
-                  onClick={() => trackEvent('book_department', 'conversion', 'ophthalmology')}
+                  onClick={handleBookOphthalmology}
                 >
                   Book Eye Consultation
                 </button>
@@ -235,7 +264,7 @@ export default function Contact() {
                 <button 
                   className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
                   data-testid="book-neuropsychiatry"
-                  onClick={() => trackEvent('book_department', 'conversion', 'neuropsychiatry')}
+                  onClick={handleBookNeuropsychiatry}
                 >
                   Book Consultation
                 </button>
@@ -255,7 +284,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:+917970838322" 
+              href="tel:+919117217024" 
               className="bg-destructive text-destructive-foreground px-8 py-3 rounded-lg font-semibold hover:bg-destructive/90 transition-colors"
               data-testid="emergency-contact-call"
               onClick={() => trackEvent('emergency_call', 'emergency', 'contact_page')}
@@ -264,7 +293,7 @@ export default function Contact() {
               Emergency Call
             </a>
             <a 
-              href="https://wa.me/917970838322?text=EMERGENCY%20-%20I%20need%20immediate%20medical%20assistance" 
+              href="https://wa.me/919117217024?text=EMERGENCY%20-%20I%20need%20immediate%20medical%20assistance" 
               className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
               data-testid="emergency-contact-whatsapp"
               onClick={() => trackEvent('emergency_whatsapp', 'emergency', 'contact_page')}
@@ -317,7 +346,7 @@ export default function Contact() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="tel:+917970838322" 
+                  href="tel:+919117217024" 
                   className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
                   data-testid="faq-call-us"
                   onClick={() => trackEvent('click_to_call', 'contact', 'faq_cta')}
@@ -326,7 +355,7 @@ export default function Contact() {
                   Call Us
                 </a>
                 <a 
-                  href="https://wa.me/917970838322?text=I%20have%20a%20question%20about%20your%20services" 
+                  href="https://wa.me/919117217024?text=I%20have%20a%20question%20about%20your%20services" 
                   className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                   data-testid="faq-whatsapp"
                   onClick={() => trackEvent('whatsapp_question', 'contact', 'faq_cta')}
@@ -348,6 +377,13 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      
+      {/* Appointment Modal */}
+      <AppointmentForm 
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        selectedDoctor={selectedDoctor}
+      />
     </div>
   );
 }

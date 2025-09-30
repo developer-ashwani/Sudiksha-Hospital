@@ -1,10 +1,11 @@
+import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 import SeoJsonLd from "@/components/seo/SeoJsonLd";
 import Hero from "@/components/home/Hero";
 import DoctorProfile from "@/components/home/DoctorProfile";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
-import AppointmentForm from "@/components/home/AppointmentForm";
+import AppointmentSection from "@/components/home/AppointmentSection";
 
 export default function Home() {
   const handleEmergencyCall = () => {
@@ -37,7 +38,7 @@ export default function Home() {
               </div>
               <div className="flex items-center space-x-3">
                 <a 
-                  href="https://facebook.com/sudikshahospital" 
+                  href="https://www.facebook.com/hospitalsudiksha/" 
                   className="text-primary-foreground hover:text-secondary transition-colors"
                   data-testid="facebook-link"
                   onClick={() => trackEvent('social_click', 'facebook', 'topbar')}
@@ -45,20 +46,12 @@ export default function Home() {
                   <i className="fab fa-facebook text-sm"></i>
                 </a>
                 <a 
-                  href="https://instagram.com/sudikshahospital" 
+                  href="https://www.instagram.com/hospitalsudiksha/" 
                   className="text-primary-foreground hover:text-secondary transition-colors"
                   data-testid="instagram-link"
                   onClick={() => trackEvent('social_click', 'instagram', 'topbar')}
                 >
                   <i className="fab fa-instagram text-sm"></i>
-                </a>
-                <a 
-                  href="https://twitter.com/sudikshahospital" 
-                  className="text-primary-foreground hover:text-secondary transition-colors"
-                  data-testid="twitter-link"
-                  onClick={() => trackEvent('social_click', 'twitter', 'topbar')}
-                >
-                  <i className="fab fa-twitter text-sm"></i>
                 </a>
               </div>
             </div>
@@ -68,13 +61,13 @@ export default function Home() {
           <div className="hidden md:flex items-center justify-between">
             <div className="flex items-center space-x-6">
               <a 
-                href="tel:+917970838322" 
+                href="tel:+919117217024" 
                 className="flex items-center hover:underline"
                 data-testid="topbar-phone"
                 onClick={() => trackEvent('click_to_call', 'contact', 'topbar')}
               >
                 <i className="fas fa-phone mr-2"></i>
-                +91 79708 38322
+                +91 9117217024
               </a>
               <a 
                 href="mailto:hospitalsudiksha@gmail.com" 
@@ -99,7 +92,7 @@ export default function Home() {
               </div>
               <div className="flex items-center space-x-3">
                 <a 
-                  href="https://facebook.com/sudikshahospital" 
+                  href="https://www.facebook.com/hospitalsudiksha/" 
                   className="text-primary-foreground hover:text-secondary transition-colors"
                   data-testid="facebook-link"
                   onClick={() => trackEvent('social_click', 'facebook', 'topbar')}
@@ -107,20 +100,12 @@ export default function Home() {
                   <i className="fab fa-facebook text-sm"></i>
                 </a>
                 <a 
-                  href="https://instagram.com/sudikshahospital" 
+                  href="https://www.instagram.com/hospitalsudiksha/" 
                   className="text-primary-foreground hover:text-secondary transition-colors"
                   data-testid="instagram-link"
                   onClick={() => trackEvent('social_click', 'instagram', 'topbar')}
                 >
                   <i className="fab fa-instagram text-sm"></i>
-                </a>
-                <a 
-                  href="https://twitter.com/sudikshahospital" 
-                  className="text-primary-foreground hover:text-secondary transition-colors"
-                  data-testid="twitter-link"
-                  onClick={() => trackEvent('social_click', 'twitter', 'topbar')}
-                >
-                  <i className="fab fa-twitter text-sm"></i>
                 </a>
               </div>
             </div>
@@ -142,7 +127,7 @@ export default function Home() {
               </div>
               <div className="flex flex-row gap-4 justify-center items-center">
                 <a 
-                  href="tel:+917970838322" 
+                  href="tel:+919117217024" 
                   className="bg-white text-destructive px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-center min-w-32 h-12 flex items-center justify-center"
                   data-testid="emergency-call"
                   onClick={handleEmergencyCall}
@@ -150,7 +135,7 @@ export default function Home() {
                   Emergency Call
                 </a>
                 <a 
-                  href="https://wa.me/917970838322?text=Emergency%20eye%20care%20needed" 
+                  href="https://wa.me/919117217024?text=Emergency%20eye%20care%20needed" 
                   className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center min-w-32 h-12 flex items-center justify-center"
                   data-testid="emergency-whatsapp"
                   onClick={handleEmergencyWhatsApp}
@@ -169,7 +154,7 @@ export default function Home() {
             </div>
             <div className="flex space-x-4">
               <a 
-                href="tel:+917970838322" 
+                href="tel:+919117217024" 
                 className="bg-white text-destructive px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors"
                 data-testid="emergency-call"
                 onClick={handleEmergencyCall}
@@ -177,7 +162,7 @@ export default function Home() {
                 Emergency Call
               </a>
               <a 
-                href="https://wa.me/917970838322?text=Emergency%20eye%20care%20needed" 
+                href="https://wa.me/919117217024?text=Emergency%20eye%20care%20needed" 
                 className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors"
                 data-testid="emergency-whatsapp"
                 onClick={handleEmergencyWhatsApp}
@@ -266,10 +251,13 @@ export default function Home() {
                   <div className="text-sm text-muted-foreground">11 Years Experience</div>
                 </div>
                 
-                <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center">
+                <Link 
+                  href="/services"
+                  className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center"
+                >
                   Learn More
                   <i className="fas fa-arrow-right ml-2"></i>
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -334,10 +322,13 @@ export default function Home() {
                   <div className="text-sm text-muted-foreground">11+ Years Experience</div>
                 </div>
                 
-                <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center">
+                <Link 
+                  href="/services"
+                  className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center"
+                >
                   Learn More
                   <i className="fas fa-arrow-right ml-2"></i>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -346,7 +337,7 @@ export default function Home() {
 
       <DoctorProfile />
       <ServicesGrid />
-      <AppointmentForm />
+      <AppointmentSection />
       <Testimonials />
 
       {/* Infrastructure */}
@@ -409,7 +400,7 @@ export default function Home() {
                 Free Eye Screening
               </button>
               <a 
-                href="tel:+917970838322" 
+                href="tel:+919117217024" 
                 className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors"
                 data-testid="call-info-button"
                 onClick={() => trackEvent('click_to_call', 'contact', 'awareness_banner')}

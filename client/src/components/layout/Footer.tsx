@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Footer() {
@@ -26,27 +27,36 @@ export default function Footer() {
               Leading healthcare provider in Patna, specializing in comprehensive eye care and neuropsychiatry services with advanced technology and expert medical professionals.
             </p>
             <div className="flex space-x-3">
-              <button 
+              <a 
+                href="https://www.facebook.com/hospitalsudiksha/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary/20 p-2 rounded-lg hover:bg-primary/30 transition-colors"
                 data-testid="social-facebook"
                 onClick={() => handleSocialClick('facebook')}
               >
                 <i className="fab fa-facebook text-primary"></i>
-              </button>
-              <button 
+              </a>
+              <a 
+                href="https://www.instagram.com/hospitalsudiksha/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary/20 p-2 rounded-lg hover:bg-primary/30 transition-colors"
                 data-testid="social-instagram"
                 onClick={() => handleSocialClick('instagram')}
               >
                 <i className="fab fa-instagram text-primary"></i>
-              </button>
-              <button 
+              </a>
+              <a 
+                href="https://www.youtube.com/@hospitalsudiksha"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary/20 p-2 rounded-lg hover:bg-primary/30 transition-colors"
                 data-testid="social-youtube"
                 onClick={() => handleSocialClick('youtube')}
               >
                 <i className="fab fa-youtube text-primary"></i>
-              </button>
+              </a>
             </div>
           </div>
           
@@ -66,14 +76,14 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Medical Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><span className="opacity-75">Cataract Treatment & Surgeries</span></li>
-              <li><span className="opacity-75">Oculoplasty & Eyelid Surgery</span></li>
-              <li><span className="opacity-75">Cornea Care & Management</span></li>
-              <li><span className="opacity-75">Glaucoma Diagnosis</span></li>
-              <li><span className="opacity-75">Anxiety & Depression Treatment</span></li>
-              <li><span className="opacity-75">De-addiction Therapy</span></li>
-              <li><span className="opacity-75">Child & Adolescent Psychiatry</span></li>
-              <li><span className="opacity-75">Family Counseling</span></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Cataract Treatment & Surgeries</Link></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Oculoplasty & Eyelid Surgery</Link></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Cornea Care & Management</Link></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Glaucoma Diagnosis</Link></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Anxiety & Depression Treatment</Link></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">De-addiction Therapy</Link></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Child & Adolescent Psychiatry</Link></li>
+              <li><Link href="/services" className="opacity-75 hover:opacity-100 hover:text-primary transition-colors">Family Counseling</Link></li>
             </ul>
           </div>
           
@@ -83,17 +93,17 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start">
                 <i className="fas fa-map-marker-alt text-primary mt-1 mr-2 flex-shrink-0"></i>
-                <span className="opacity-75">1st Floor, Above IDBI Bank, Arya Kumar Road, Rajendranagar, Patna – 800016</span>
+                <span className="opacity-75">1st Floor, Above IDBI Bank, Arya Kumar Road, Near Pramod Laddu Bhandar, Rajendranagar, Patna – 800016</span>
               </div>
               <div className="flex items-center">
                 <i className="fas fa-phone text-primary mr-2"></i>
                 <a 
-                  href="tel:+917970838322" 
+                  href="tel:+919117217024" 
                   className="opacity-75 hover:opacity-100 hover:text-primary transition-colors"
                   data-testid="footer-phone"
                   onClick={() => trackEvent('click_to_call', 'contact', 'footer')}
                 >
-                  +91 79708 38322
+                  +91 9117217024
                 </a>
               </div>
               <div className="flex items-center">
@@ -116,7 +126,7 @@ export default function Footer() {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm opacity-75 mb-4 md:mb-0">
-              © 2024 Sudiksha Hospital. All rights reserved. | 
+              © 2025 Sudiksha Hospital. All rights reserved. | 
               <a href="/privacy" className="hover:text-primary transition-colors ml-1">Privacy Policy</a> | 
               <a href="/terms" className="hover:text-primary transition-colors ml-1">Terms of Service</a>
             </p>

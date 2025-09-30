@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import AppointmentForm from "@/components/home/AppointmentForm";
 
 export default function StickyContactBar() {
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+
   const handleCall = () => {
     trackEvent('click_to_call', 'contact', 'sticky_bar');
   };
@@ -11,13 +15,14 @@ export default function StickyContactBar() {
 
   const handleBook = () => {
     trackEvent('book_appointment', 'conversion', 'sticky_bar');
+    setIsAppointmentModalOpen(true);
   };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-card shadow-lg border-t z-40 md:hidden">
       <div className="grid grid-cols-3 gap-1">
         <a 
-          href="tel:+917970838322" 
+          href="tel:+919117217024" 
           className="flex flex-col items-center justify-center p-3 hover:bg-accent/50 transition-colors"
           data-testid="sticky-call"
           onClick={handleCall}
@@ -26,7 +31,7 @@ export default function StickyContactBar() {
           <span className="text-xs font-medium">Call</span>
         </a>
         <a 
-          href="https://wa.me/917970838322?text=I%20would%20like%20to%20book%20an%20appointment" 
+          href="https://wa.me/919117217024?text=I%20would%20like%20to%20book%20an%20appointment" 
           className="flex flex-col items-center justify-center p-3 hover:bg-accent/50 transition-colors"
           data-testid="sticky-whatsapp"
           onClick={handleWhatsApp}
@@ -43,6 +48,13 @@ export default function StickyContactBar() {
           <span className="text-xs font-medium">Book</span>
         </button>
       </div>
+      
+      {/* Appointment Modal */}
+      <AppointmentForm 
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        selectedDoctor="any"
+      />
     </div>
   );
 }

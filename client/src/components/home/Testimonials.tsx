@@ -79,42 +79,42 @@ export default function Testimonials() {
       name: "Mr. Rajesh Kumar",
       condition: "Cataract Surgery",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      videoId: "dQw4w9WgXcQ" // Example YouTube video ID - replace with actual patient testimonial videos
+      videoId: "Cs1NQFkpBt8" // Patient testimonial video
     },
     {
       id: 2,
       name: "Ms. Priya Singh",
       condition: "Oculoplasty",
-      image: "https://images.unsplash.com/photo-1594824373632-8b4b4b4b4b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      videoId: "jNQXAC9IVRw" // Example YouTube video ID - replace with actual patient testimonial videos
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      videoId: "Cs1NQFkpBt8" // Patient testimonial video
     },
     {
       id: 3,
       name: "Mrs. Sunita Devi",
       condition: "Depression Recovery",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      videoId: "M7lc1UVf-VE" // Example YouTube video ID - replace with actual patient testimonial videos
+      videoId: "Cs1NQFkpBt8" // Patient testimonial video
     },
     {
       id: 4,
       name: "Mr. Anil Sharma",
       condition: "Glaucoma Management",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      videoId: "dQw4w9WgXcQ" // Example YouTube video ID - replace with actual patient testimonial videos
+      videoId: "Cs1NQFkpBt8" // Patient testimonial video
     },
     {
       id: 5,
       name: "Dr. Kavita Jha",
       condition: "Anxiety Treatment",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      videoId: "jNQXAC9IVRw" // Example YouTube video ID - replace with actual patient testimonial videos
+      videoId: "Cs1NQFkpBt8" // Patient testimonial video
     },
     {
       id: 6,
       name: "Mrs. Meera Patel",
       condition: "Retinal Surgery",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      videoId: "M7lc1UVf-VE" // Example YouTube video ID - replace with actual patient testimonial videos
+      videoId: "Cs1NQFkpBt8" // Patient testimonial video
     }
   ];
 

@@ -1,8 +1,18 @@
+import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import AppointmentForm from "@/components/home/AppointmentForm";
 
 export default function Services() {
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState<'dr-priyanka' | 'dr-vinay' | 'any'>('any');
+
   const handleServiceInquiry = (service: string) => {
     trackEvent('service_inquiry', 'services', service);
+  };
+
+  const handleBookAppointment = () => {
+    trackEvent('book_appointment', 'conversion', 'services_cta');
+    setIsAppointmentModalOpen(true);
   };
 
   return (
@@ -183,7 +193,7 @@ export default function Services() {
             </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a 
-                href="tel:+917970838322" 
+                href="tel:+919117217024" 
                 className="bg-red-600 text-white px-10 py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors text-lg"
                 data-testid="emergency-call"
                 onClick={() => trackEvent('emergency_call', 'emergency', 'services_page')}
@@ -191,7 +201,7 @@ export default function Services() {
                 Emergency Call
               </a>
               <a 
-                href="https://wa.me/917970838322?text=Emergency%20medical%20assistance%20needed" 
+                href="https://wa.me/919117217024?text=Emergency%20medical%20assistance%20needed" 
                 className="bg-green-600 text-white px-10 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors text-lg"
                 data-testid="emergency-whatsapp"
                 onClick={() => trackEvent('emergency_whatsapp', 'emergency', 'services_page')}
@@ -215,12 +225,12 @@ export default function Services() {
               <button 
                 className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
                 data-testid="book-appointment-cta"
-                onClick={() => trackEvent('book_appointment', 'conversion', 'services_cta')}
+                onClick={handleBookAppointment}
               >
                 Book Appointment
               </button>
               <a 
-                href="tel:+917970838322" 
+                href="tel:+919117217024" 
                 className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors"
                 data-testid="call-services"
                 onClick={() => trackEvent('click_to_call', 'contact', 'services_cta')}
@@ -231,6 +241,13 @@ export default function Services() {
           </div>
         </div>
       </div>
+      
+      {/* Appointment Modal */}
+      <AppointmentForm 
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        selectedDoctor={selectedDoctor}
+      />
     </div>
   );
 }

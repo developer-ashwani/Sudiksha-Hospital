@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 
 export default function ServicesGrid() {
@@ -111,13 +112,14 @@ export default function ServicesGrid() {
                     <li key={idx}>• {feature}</li>
                   ))}
                 </ul>
-                <button 
+                <Link 
+                  href="/services"
                   className="text-primary font-medium hover:underline"
                   data-testid={`learn-more-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={() => handleServiceLearnMore(service.title)}
                 >
                   Learn More →
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -139,13 +141,14 @@ export default function ServicesGrid() {
                     <li key={idx}>• {feature}</li>
                   ))}
                 </ul>
-                <button 
+                <Link 
+                  href="/services"
                   className="text-blue-600 font-medium hover:underline"
                   data-testid={`learn-more-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={() => handleServiceLearnMore(service.title)}
                 >
                   Learn More →
-                </button>
+                </Link>
               </div>
             ))}
           </div>

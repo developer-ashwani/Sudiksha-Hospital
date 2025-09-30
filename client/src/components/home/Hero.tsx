@@ -1,8 +1,15 @@
+import { useState } from "react";
+import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
+import AppointmentForm from "./AppointmentForm";
 
 export default function Hero() {
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState<'dr-priyanka' | 'dr-vinay' | 'any'>('dr-priyanka');
+
   const handleBookAppointment = () => {
     trackEvent('book_appointment', 'conversion', 'hero');
+    setIsAppointmentModalOpen(true);
   };
 
   const handleOurSpecialists = () => {
@@ -11,10 +18,14 @@ export default function Hero() {
 
   const handleConsultDrPriyanka = () => {
     trackEvent('consult_dr_priyanka', 'conversion', 'hero');
+    setSelectedDoctor('dr-priyanka');
+    setIsAppointmentModalOpen(true);
   };
 
   const handleConsultDrVinay = () => {
     trackEvent('consult_dr_vinay', 'conversion', 'hero');
+    setSelectedDoctor('dr-vinay');
+    setIsAppointmentModalOpen(true);
   };
 
   const handleEyeCareExcellence = () => {
@@ -55,14 +66,15 @@ export default function Hero() {
                 <i className="fas fa-clock mr-2 sm:mr-3"></i>
                 Book Appointment
               </button>
-              <button 
+              <Link 
+                href="/doctors"
                 className="bg-white border-2 border-foreground text-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-50 transition-colors flex items-center justify-center"
                 data-testid="hero-our-specialists"
                 onClick={handleOurSpecialists}
               >
                 <i className="fas fa-eye mr-2 sm:mr-3"></i>
                 Our Specialists
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -223,12 +235,13 @@ export default function Hero() {
               <h3 className="font-bold text-foreground text-base mb-2">Eye Care Excellence</h3>
               <p className="text-muted-foreground text-sm">Comprehensive ophthalmology services including cataract, Oculoplasty, and retinal care</p>
             </div>
-            <button 
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
+            <Link 
+              href="/services"
+              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
               onClick={handleEyeCareExcellence}
             >
               Access Now
-            </button>
+            </Link>
           </div>
 
           {/* Mental Health Care Card */}
@@ -240,12 +253,13 @@ export default function Hero() {
               <h3 className="font-bold text-foreground text-base mb-2">Mental Health Care</h3>
               <p className="text-muted-foreground text-sm">Expert neuropsychiatry services for depression, anxiety, and addiction recovery</p>
             </div>
-            <button 
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
+            <Link 
+              href="/services"
+              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
               onClick={handleMentalHealthCare}
             >
               Access Now
-            </button>
+            </Link>
           </div>
 
           {/* Expert Specialists Card */}
@@ -257,12 +271,13 @@ export default function Hero() {
               <h3 className="font-bold text-foreground text-base mb-2">Expert Specialists</h3>
               <p className="text-muted-foreground text-sm">Highly qualified doctors with experience from premier institutions</p>
             </div>
-            <button 
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
+            <Link 
+              href="/services"
+              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
               onClick={handleExpertSpecialists}
             >
               Access Now
-            </button>
+            </Link>
           </div>
 
           {/* Patient-Centered Care Card */}
@@ -274,15 +289,23 @@ export default function Hero() {
               <h3 className="font-bold text-foreground text-base mb-2">Patient-Centered Care</h3>
               <p className="text-muted-foreground text-sm">Compassionate approach with personalized treatment plans</p>
             </div>
-            <button 
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
+            <Link 
+              href="/services"
+              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
               onClick={handlePatientCenteredCare}
             >
               Access Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
+
+      {/* Appointment Form Modal */}
+      <AppointmentForm
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        selectedDoctor={selectedDoctor}
+      />
     </section>
   );
 }

@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { trackEvent } from "@/lib/analytics";
+import AppointmentForm from "@/components/home/AppointmentForm";
 
 export default function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
-  const handleBookDrPriyanka = () => {
-    trackEvent('book_dr_priyanka', 'conversion', 'header');
+  const handleBookAppointment = () => {
+    trackEvent('book_appointment', 'conversion', 'header');
+    setIsAppointmentModalOpen(true);
   };
 
   const toggleMobileMenu = () => {
@@ -55,9 +58,9 @@ export default function Header() {
             <button 
               className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
               data-testid="header-book-button"
-              onClick={handleBookDrPriyanka}
+              onClick={handleBookAppointment}
             >
-              Book Dr. Priyanka
+              Book Appointment
             </button>
           </nav>
           
@@ -92,16 +95,23 @@ export default function Header() {
                 className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors mt-4"
                 data-testid="mobile-book-button"
                 onClick={() => {
-                  handleBookDrPriyanka();
+                  handleBookAppointment();
                   setIsMobileMenuOpen(false);
                 }}
               >
-                Book Dr. Priyanka
+                Book Appointment
               </button>
             </nav>
           </div>
         )}
       </div>
+      
+      {/* Appointment Modal */}
+      <AppointmentForm 
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        selectedDoctor="any"
+      />
     </header>
   );
 }

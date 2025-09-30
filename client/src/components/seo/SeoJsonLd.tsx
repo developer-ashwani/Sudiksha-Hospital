@@ -7,7 +7,7 @@ export default function SeoJsonLd() {
     "url": "https://sudikshahospital.com",
     "logo": "https://sudikshahospital.com/images/logo.png",
     "image": "https://sudikshahospital.com/images/hospital-exterior.jpg",
-    "telephone": "+917970838322",
+    "telephone": "+919117217024",
     "email": "hospitalsudiksha@gmail.com",
     "address": {
       "@type": "PostalAddress",
@@ -49,7 +49,7 @@ export default function SeoJsonLd() {
         "@type": "Physician",
         "name": "Dr. Priyanka Sharma",
         "medicalSpecialty": "Ophthalmology",
-        "telephone": "+917970838322",
+        "telephone": "+919117217024",
         "worksFor": {
           "@type": "Hospital",
           "name": "Sudiksha Hospital"
@@ -59,7 +59,7 @@ export default function SeoJsonLd() {
         "@type": "Physician",
         "name": "Dr. Vinay Kumar",
         "medicalSpecialty": "Neuropsychiatry",
-        "telephone": "+917970838322",
+        "telephone": "+919117217024",
         "worksFor": {
           "@type": "Hospital",
           "name": "Sudiksha Hospital"
