@@ -10,7 +10,7 @@ export default function Contact() {
   const handleDirectionsClick = () => {
     trackEvent('get_directions', 'navigation', 'contact_page');
     // Open Google Maps with directions to the hospital
-    const hospitalAddress = "Sudiksha Hospital, 1st Floor, Above IDBI Bank, Near Pramod Laddu Bhandar, Arya Kumar Road, Rajendranagar, Patna, Bihar 800016";
+    const hospitalAddress = "Sudiksha Hospital, 140B, 1st Floor, Above IDBI Bank, Near Pramod Laddu Bhandar, Arya Kumar Road, Rajendranagar, Patna, Bihar 800016";
     const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(hospitalAddress)}`;
     window.open(mapsUrl, '_blank', 'noopener,noreferrer');
   };
@@ -137,7 +137,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Hospital Address</h3>
                     <p className="text-muted-foreground">
-                      1st Floor, Above IDBI Bank<br />
+                      140B, 1st Floor, Above IDBI Bank<br />
                       Near Pramod Laddu Bhandar<br />
                       Arya Kumar Road, Rajendranagar<br />
                       Patna – 800016, Bihar

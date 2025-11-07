@@ -44,11 +44,11 @@ export default function DoctorProfile() {
                 className="rounded-xl shadow-lg w-32 h-32 object-cover mx-auto mb-4"
               />
               <div className="bg-primary text-primary-foreground inline-block px-3 py-1 rounded-full text-sm font-medium mb-3">
-                Senior Consultant Ophthalmologist
+                Consultant Ophthalmologist
               </div>
               <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Dr. Priyanka Sharma</h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Senior Consultant at Sudiksha Hospital with 11 years of experience in comprehensive ophthalmology, advanced eye surgeries, and community eye care.
+                Consultant at Sudiksha Hospital with 11 years of experience in comprehensive ophthalmology, advanced eye surgeries, and community eye care.
               </p>
             </div>
             
@@ -105,11 +105,11 @@ export default function DoctorProfile() {
                 className="rounded-xl shadow-lg w-32 h-32 object-cover mx-auto mb-4"
               />
               <div className="bg-blue-100 text-blue-800 inline-block px-3 py-1 rounded-full text-sm font-medium mb-3">
-                Neuropsychiatrist & Mental Health Specialist
+                Consultant Neuropsychiatrist
               </div>
               <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Dr. Vinay Kumar</h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Neuropsychiatrist with 11+ years of experience, former NIMHANS Bengaluru psychiatrist specializing in comprehensive mental healthcare with holistic treatment approach.
+                Consultant Neuropsychiatrist with 11+ years of experience, former NIMHANS Bengaluru psychiatrist specializing in comprehensive mental healthcare with holistic treatment approach.
               </p>
             </div>
             

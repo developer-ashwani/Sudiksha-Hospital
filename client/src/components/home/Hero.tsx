@@ -55,7 +55,7 @@ export default function Hero() {
               <div className="text-4xl sm:text-5xl lg:text-6xl text-primary">Mental Health & Eye Health</div>
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">
-              Sudiksha Hospital specializes in comprehensive mental health and eye care services with expert neuropsychiatrists and ophthalmologists in Rajendranagar, Patna.
+              Sudiksha Hospital specializes in comprehensive mental health and eye care services with expert neuro psychiatrists and ophthalmologists in Rajendranagar, Patna.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 lg:mb-12">
               <button 
@@ -97,7 +97,7 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-base mb-1">Dr. Priyanka Sharma</h3>
-                    <p className="text-primary font-medium text-xs mb-1">Senior Consultant Ophthalmologist</p>
+                    <p className="text-primary font-medium text-xs mb-1">Consultant Ophthalmologist</p>
                     <p className="text-muted-foreground text-xs mb-3">MBBS, MS (Ophthalmology) - KGMC Lucknow</p>
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-lg mb-1">Dr. Priyanka Sharma</h3>
-                    <p className="text-primary font-medium text-sm mb-1">Senior Consultant Ophthalmologist</p>
+                    <p className="text-primary font-medium text-sm mb-1">Consultant Ophthalmologist</p>
                     <p className="text-muted-foreground text-sm mb-3">MBBS, MS (Ophthalmology) - KGMC Lucknow</p>
                     <div className="flex gap-2 flex-wrap">
                       <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Cataract Surgery</span>
@@ -168,8 +168,8 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-base mb-1">Dr. Vinay Kumar</h3>
-                    <p className="text-primary font-medium text-xs mb-1">Neuropsychiatrist & Mental Health Specialist</p>
-                    <p className="text-muted-foreground text-xs mb-3">MD (Psychiatry) - MGIMS | PGDCFT, MIPS, CHRE (UK)</p>
+                    <p className="text-primary font-medium text-xs mb-1">Consultant Neuropsychiatrist</p>
+                    <p className="text-muted-foreground text-xs mb-3">MBBS, MD (Psychiatry) - MGIMS | PGDCFT, MIPS, CHRE (UK)</p>
                   </div>
                 </div>
                 <div className="flex gap-1 flex-wrap mb-4">
@@ -201,8 +201,8 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-lg mb-1">Dr. Vinay Kumar</h3>
-                    <p className="text-primary font-medium text-sm mb-1">Neuropsychiatrist & Mental Health Specialist</p>
-                    <p className="text-muted-foreground text-sm mb-3">MD (Psychiatry) - MGIMS | PGDCFT, MIPS, CHRE (UK)</p>
+                    <p className="text-primary font-medium text-sm mb-1">Consultant Neuropsychiatrist</p>
+                    <p className="text-muted-foreground text-sm mb-3">MBBS, MD (Psychiatry) - MGIMS | PGDCFT, MIPS, CHRE (UK)</p>
                     <div className="flex gap-2 flex-wrap">
                       <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">Depression & Anxiety</span>
                       <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">De-addiction</span>

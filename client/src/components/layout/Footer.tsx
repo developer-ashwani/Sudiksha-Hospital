@@ -93,7 +93,7 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start">
                 <i className="fas fa-map-marker-alt text-primary mt-1 mr-2 flex-shrink-0"></i>
-                <span className="opacity-75">1st Floor, Above IDBI Bank, Arya Kumar Road, Near Pramod Laddu Bhandar, Rajendranagar, Patna – 800016</span>
+                <span className="opacity-75">140B, 1st Floor, Above IDBI Bank, Arya Kumar Road, Near Pramod Laddu Bhandar, Rajendranagar, Patna – 800016</span>
               </div>
               <div className="flex items-center">
                 <i className="fas fa-phone text-primary mr-2"></i>
