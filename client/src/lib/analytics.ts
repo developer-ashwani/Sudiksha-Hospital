@@ -4,13 +4,13 @@
 export function initGA() {
   // Dummy implementation - replace with real GA when needed
   if (typeof window !== 'undefined') {
-    console.log('Analytics initialized (dummy mode)');
+    // Analytics initialized in dummy mode
   }
 }
 
 export function trackEvent(action: string, category: string, label?: string) {
   // Dummy implementation - replace with real GA event tracking
   if (typeof window !== 'undefined') {
-    console.log('Track event:', { action, category, label });
+    // Track event: { action, category, label }
   }
 }

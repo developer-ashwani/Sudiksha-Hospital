@@ -7,7 +7,7 @@ export function useAnalytics() {
   useEffect(() => {
     // Dummy page view tracking - replace with real GA later
     if (typeof window !== 'undefined') {
-      console.log('Page view:', location);
+      // Page view: location
     }
   }, [location]);
 }
