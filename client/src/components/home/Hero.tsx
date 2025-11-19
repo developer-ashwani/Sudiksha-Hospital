@@ -2,10 +2,14 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 import AppointmentForm from "./AppointmentForm";
+import { useTranslation } from "@/hooks/use-translation";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
   const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState<'dr-priyanka' | 'dr-vinay' | 'any'>('dr-priyanka');
+  const { t } = useTranslation();
+  const { language } = useLanguage();
 
   const handleBookAppointment = () => {
     trackEvent('book_appointment', 'conversion', 'hero');
@@ -51,11 +55,11 @@ export default function Hero() {
           {/* Left Column - Main Content */}
           <div className="order-1">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-heading font-bold text-foreground leading-tight mb-6">
-              <div className="text-3xl sm:text-4xl lg:text-5xl">Trusted Care for</div>
-              <div className="text-4xl sm:text-5xl lg:text-6xl text-primary">Mental Health & Eye Health</div>
+              <div className="text-3xl sm:text-4xl lg:text-5xl">{t("home.hero.titleLine1")}</div>
+              <div className="text-4xl sm:text-5xl lg:text-6xl text-primary">{t("home.hero.titleLine2")}</div>
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">
-              Sudiksha Hospital specializes in comprehensive mental health and eye care services with expert neuro psychiatrists and ophthalmologists in Rajendranagar, Patna.
+              {t("home.hero.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 lg:mb-12">
               <button 
@@ -64,7 +68,7 @@ export default function Hero() {
                 onClick={handleBookAppointment}
               >
                 <i className="fas fa-clock mr-2 sm:mr-3"></i>
-                Book Appointment
+                {t("home.hero.bookAppointment")}
               </button>
               <Link 
                 href="/doctors"
@@ -73,7 +77,7 @@ export default function Hero() {
                 onClick={handleOurSpecialists}
               >
                 <i className="fas fa-eye mr-2 sm:mr-3"></i>
-                Our Specialists
+                {t("home.hero.ourSpecialists")}
               </Link>
             </div>
           </div>
@@ -97,21 +101,21 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-base mb-1">Dr. Priyanka Sharma</h3>
-                    <p className="text-primary font-medium text-xs mb-1">Consultant Ophthalmologist</p>
+                    <p className="text-primary font-medium text-xs mb-1">{t("home.hero.consultantOphthalmologist")}</p>
                     <p className="text-muted-foreground text-xs mb-3">MBBS, MS (Ophthalmology) - KGMC Lucknow</p>
                   </div>
                 </div>
                 <div className="flex gap-1 flex-wrap mb-4">
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Cataract Surgery</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Oculoplasty</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Glaucoma</span>
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">{t("home.hero.cataractSurgery")}</span>
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">{t("home.hero.oculoplasty")}</span>
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">{t("home.hero.glaucoma")}</span>
                 </div>
                 <button 
                   className="w-full bg-primary text-primary-foreground px-4 py-2 rounded text-sm font-medium hover:bg-primary/90 transition-colors"
                   data-testid="consult-dr-priyanka"
                   onClick={handleConsultDrPriyanka}
                 >
-                  Consult
+                  {t("common.consult")}
                 </button>
               </div>
 
@@ -130,12 +134,12 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-lg mb-1">Dr. Priyanka Sharma</h3>
-                    <p className="text-primary font-medium text-sm mb-1">Consultant Ophthalmologist</p>
+                    <p className="text-primary font-medium text-sm mb-1">{t("home.hero.consultantOphthalmologist")}</p>
                     <p className="text-muted-foreground text-sm mb-3">MBBS, MS (Ophthalmology) - KGMC Lucknow</p>
                     <div className="flex gap-2 flex-wrap">
-                      <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Cataract Surgery</span>
-                      <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Oculoplasty</span>
-                      <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Glaucoma</span>
+                      <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">{t("home.hero.cataractSurgery")}</span>
+                      <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">{t("home.hero.oculoplasty")}</span>
+                      <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">{t("home.hero.glaucoma")}</span>
                     </div>
                   </div>
                   <div className="flex items-end">
@@ -144,7 +148,7 @@ export default function Hero() {
                       data-testid="consult-dr-priyanka"
                       onClick={handleConsultDrPriyanka}
                     >
-                      Consult
+                      {t("common.consult")}
                     </button>
                   </div>
                 </div>
@@ -168,21 +172,21 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-base mb-1">Dr. Vinay Kumar</h3>
-                    <p className="text-primary font-medium text-xs mb-1">Consultant Neuropsychiatrist</p>
+                    <p className="text-primary font-medium text-xs mb-1">{t("home.hero.consultantNeuropsychiatrist")}</p>
                     <p className="text-muted-foreground text-xs mb-3">MBBS, MD (Psychiatry) - MGIMS | PGDCFT, MIPS, CHRE (UK)</p>
                   </div>
                 </div>
                 <div className="flex gap-1 flex-wrap mb-4">
-                  <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">Depression & Anxiety</span>
-                  <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">De-addiction</span>
-                  <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">Child Psychiatry</span>
+                  <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">{t("home.hero.depressionAnxiety")}</span>
+                  <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">{t("home.hero.deAddiction")}</span>
+                  <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">{t("home.hero.childPsychiatry")}</span>
                 </div>
                 <button 
                   className="w-full bg-gray-100 text-foreground px-4 py-2 rounded text-sm font-medium hover:bg-gray-200 transition-colors"
                   data-testid="consult-dr-vinay"
                   onClick={handleConsultDrVinay}
                 >
-                  Consult
+                  {t("common.consult")}
                 </button>
               </div>
 
@@ -201,12 +205,12 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-foreground text-lg mb-1">Dr. Vinay Kumar</h3>
-                    <p className="text-primary font-medium text-sm mb-1">Consultant Neuropsychiatrist</p>
+                    <p className="text-primary font-medium text-sm mb-1">{t("home.hero.consultantNeuropsychiatrist")}</p>
                     <p className="text-muted-foreground text-sm mb-3">MBBS, MD (Psychiatry) - MGIMS | PGDCFT, MIPS, CHRE (UK)</p>
                     <div className="flex gap-2 flex-wrap">
-                      <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">Depression & Anxiety</span>
-                      <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">De-addiction</span>
-                      <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">Child Psychiatry</span>
+                      <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">{t("home.hero.depressionAnxiety")}</span>
+                      <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">{t("home.hero.deAddiction")}</span>
+                      <span className="bg-gray-100 text-foreground px-2 py-1 rounded text-xs">{t("home.hero.childPsychiatry")}</span>
                     </div>
                   </div>
                   <div className="flex items-end">
@@ -215,7 +219,7 @@ export default function Hero() {
                       data-testid="consult-dr-vinay"
                       onClick={handleConsultDrVinay}
                     >
-                      Consult
+                      {t("common.consult")}
                     </button>
                   </div>
                 </div>
@@ -226,77 +230,57 @@ export default function Hero() {
 
         {/* Service Cards Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
-          {/* Eye Care Excellence Card */}
-          <div className="bg-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="text-center mb-4">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-eye text-primary text-xl"></i>
-              </div>
-              <h3 className="font-bold text-foreground text-base mb-2">Eye Care Excellence</h3>
-              <p className="text-muted-foreground text-sm">Comprehensive ophthalmology services including cataract, Oculoplasty, and retinal care</p>
-            </div>
-            <Link 
-              href="/services"
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
-              onClick={handleEyeCareExcellence}
-            >
-              Access Now
-            </Link>
-          </div>
+          {/* Eye Care Excellence Card (image-only) */}
+          <Link
+            href="/services"
+            onClick={handleEyeCareExcellence}
+            className="bg-gray-100 rounded-xl p-0 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex items-center justify-center"
+          >
+            <img
+              src="/images/eyecare.png"
+              alt="Eye Care Excellence"
+              className="w-full h-41 sm:h-56 object-cover block"
+            />
+          </Link>
 
-          {/* Mental Health Care Card */}
-          <div className="bg-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="text-center mb-4">
-              <div className="bg-gray-200 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-brain text-foreground text-xl"></i>
-              </div>
-              <h3 className="font-bold text-foreground text-base mb-2">Mental Health Care</h3>
-              <p className="text-muted-foreground text-sm">Expert neuropsychiatry services for depression, anxiety, and addiction recovery</p>
-            </div>
-            <Link 
-              href="/services"
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
-              onClick={handleMentalHealthCare}
-            >
-              Access Now
-            </Link>
-          </div>
+          {/* Mental Health Care Card (image-only) */}
+          <Link
+            href="/services"
+            onClick={handleMentalHealthCare}
+            className="bg-gray-100 rounded-xl p-0 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex items-center justify-center"
+          >
+            <img
+              src="/images/mental-health.png"
+              alt="Mental Health Care"
+              className="w-full h-41 sm:h-56 object-cover block"
+            />
+          </Link>
 
-          {/* Expert Specialists Card */}
-          <div className="bg-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="text-center mb-4">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-medal text-primary text-xl"></i>
-              </div>
-              <h3 className="font-bold text-foreground text-base mb-2">Expert Specialists</h3>
-              <p className="text-muted-foreground text-sm">Highly qualified doctors with experience from premier institutions</p>
-            </div>
-            <Link 
-              href="/services"
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
-              onClick={handleExpertSpecialists}
-            >
-              Access Now
-            </Link>
-          </div>
+          {/* Expert Specialists Card (image-only) */}
+          <Link
+            href="/services"
+            onClick={handleExpertSpecialists}
+            className="bg-gray-100 rounded-xl p-0 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex items-center justify-center"
+          >
+            <img
+              src="/images/expert.png"
+              alt="Expert Specialists"
+              className="w-full h-41 sm:h-56 object-cover block"
+            />
+          </Link>
 
-          {/* Patient-Centered Care Card */}
-          <div className="bg-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="text-center mb-4">
-              <div className="bg-gray-200 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-users text-foreground text-xl"></i>
-              </div>
-              <h3 className="font-bold text-foreground text-base mb-2">Patient-Centered Care</h3>
-              <p className="text-muted-foreground text-sm">Compassionate approach with personalized treatment plans</p>
-            </div>
-            <Link 
-              href="/services"
-              className="w-full bg-gray-200 text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors block text-center"
-              onClick={handlePatientCenteredCare}
-            >
-              Access Now
-            </Link>
-          </div>
+          {/* Patient-Centered Care Card (image-only) */}
+          <Link
+            href="/services"
+            onClick={handlePatientCenteredCare}
+            className="bg-gray-100 rounded-xl p-0 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex items-center justify-center"
+          >
+            <img
+              src="/images/patient-centered.png"
+              alt="Patient Centered Care"
+              className="w-full h-41 sm:h-56 object-cover block"
+            />
+          </Link>
         </div>
       </div>
 

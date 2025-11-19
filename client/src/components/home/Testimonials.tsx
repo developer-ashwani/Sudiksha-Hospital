@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useTranslation } from "@/hooks/use-translation";
 
 export default function Testimonials() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -6,6 +7,7 @@ export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState<{id: number, name: string, condition: string, videoId: string} | null>(null);
+  const { t } = useTranslation();
 
   const scrollToNext = () => {
     if (scrollContainerRef.current) {
@@ -147,10 +149,10 @@ export default function Testimonials() {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">
-            Patient Stories
+            {t("home.testimonials.title")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Real experiences from patients who trust us with their healthcare
+            {t("home.testimonials.description")}
           </p>
         </div>
         
@@ -267,7 +269,7 @@ export default function Testimonials() {
         
         {/* Written Testimonials */}
         <div>
-          <h3 className="text-2xl font-heading font-semibold text-center mb-8">Patient Reviews</h3>
+          <h3 className="text-2xl font-heading font-semibold text-center mb-8">{t("home.testimonials.patientReviews")}</h3>
           
           {/* Mobile Slider */}
           <div className="block md:hidden">

@@ -6,8 +6,11 @@ import DoctorProfile from "@/components/home/DoctorProfile";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
 import AppointmentSection from "@/components/home/AppointmentSection";
+import { useTranslation } from "@/hooks/use-translation";
 
 export default function Home() {
+  const { t } = useTranslation();
+  
   const handleEmergencyCall = () => {
     trackEvent('emergency_call', 'contact', 'emergency_banner');
   };
@@ -34,7 +37,7 @@ export default function Home() {
                   <i className="fas fa-star text-secondary text-xs"></i>
                   <i className="fas fa-star text-secondary text-xs"></i>
                 </div>
-                <span className="text-xs font-medium">Google Verified Excellence</span>
+                <span className="text-xs font-medium">{t("home.topBar.googleVerifiedExcellence")}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <a 
@@ -88,7 +91,7 @@ export default function Home() {
                   <i className="fas fa-star text-secondary text-xs"></i>
                   <i className="fas fa-star text-secondary text-xs"></i>
                 </div>
-                <span className="text-xs font-medium">Google Verified Excellence</span>
+                <span className="text-xs font-medium">{t("home.topBar.googleVerifiedExcellence")}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <a 
@@ -123,7 +126,7 @@ export default function Home() {
             <div className="text-center space-y-4">
               <div className="flex items-center justify-center">
                 <i className="fas fa-exclamation-triangle text-xl mr-2"></i>
-                <span className="font-semibold text-sm">24/7 Emergency Eye Care Available</span>
+                <span className="font-semibold text-sm">{t("home.emergency.title")}</span>
               </div>
               <div className="flex flex-row gap-4 justify-center items-center">
                 <a 
@@ -132,7 +135,7 @@ export default function Home() {
                   data-testid="emergency-call"
                   onClick={handleEmergencyCall}
                 >
-                  Emergency Call
+                  {t("home.emergency.emergencyCall")}
                 </a>
                 <a 
                   href="https://wa.me/919117217024?text=Emergency%20eye%20care%20needed" 
@@ -150,7 +153,7 @@ export default function Home() {
           <div className="hidden md:flex items-center justify-between">
             <div className="flex items-center">
               <i className="fas fa-exclamation-triangle text-2xl mr-3"></i>
-              <span className="font-semibold">24/7 Emergency Eye Care Available</span>
+              <span className="font-semibold">{t("home.emergency.title")}</span>
             </div>
             <div className="flex space-x-4">
               <a 
@@ -167,7 +170,7 @@ export default function Home() {
                 data-testid="emergency-whatsapp"
                 onClick={handleEmergencyWhatsApp}
               >
-                WhatsApp Now
+                {t("home.emergency.whatsappNow")}
               </a>
             </div>
           </div>
@@ -179,13 +182,13 @@ export default function Home() {
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <div className="mb-6">
-                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Our Specialties</span>
+                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{t("home.specialties.subtitle")}</span>
               </div>
               <h2 className="text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">
-                Specialized Mental Health & Eye Care
+                {t("home.specialties.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-                Sudiksha Hospital provides expert care in neuropsychiatry and ophthalmology with experienced specialists and modern medical facilities in Rajendranagar, Patna.
+                {t("home.specialties.description")}
               </p>
             </div>
           
@@ -203,59 +206,58 @@ export default function Home() {
                     <div className="bg-primary w-6 h-6 rounded-full flex items-center justify-center mr-2">
                       <i className="fas fa-eye text-white text-xs"></i>
                     </div>
-                    <span className="text-sm font-medium text-foreground">Featured Specialty</span>
+                    <span className="text-sm font-medium text-foreground">{t("home.specialties.featuredSpecialty")}</span>
                   </div>
                 </div>
               </div>
               
               <div className="p-6">
                 <h3 className="text-2xl font-heading font-bold text-foreground mb-3">
-                  Ophthalmology & Eye Care
+                  {t("home.specialties.ophthalmology.title")}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Complete eye care solutions including cataract treatment, oculoplasty, cornea care, glaucoma management, and pediatric eye care.
+                  {t("home.specialties.ophthalmology.description")}
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Cataract Treatment & Surgeries</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.ophthalmology.cataractTreatment")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Oculoplasty & Eyelid Surgery</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.ophthalmology.oculoplasty")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Cornea Care & Management</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.ophthalmology.corneaCare")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Glaucoma Diagnosis</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.ophthalmology.glaucomaDiagnosis")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Pediatric Eye Care</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.ophthalmology.pediatricEyeCare")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Eye Injury Management</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.ophthalmology.eyeInjuryManagement")}</span>
                   </div>
                 </div>
                 
                 <div className="mb-6">
-                  <div className="font-semibold text-foreground">Dr. Priyanka Sharma</div>
-                  <div className="text-sm text-muted-foreground">Senior Consultant Ophthalmologist</div>
-                  <div className="text-sm text-muted-foreground">MS (Ophthalmology) - KGMC Lucknow</div>
-                  <div className="text-sm text-muted-foreground">Former Senior Resident, NMCH Patna</div>
-                  <div className="text-sm text-muted-foreground">11 Years Experience</div>
+                  <div className="font-semibold text-foreground">{t("home.specialties.ophthalmology.doctorName")}</div>
+                  <div className="text-sm text-muted-foreground">{t("home.specialties.ophthalmology.doctorTitle")}</div>
+                  <div className="text-sm text-muted-foreground">{t("home.specialties.ophthalmology.doctorEducation")}</div>
+                  <div className="text-sm text-muted-foreground">{t("home.specialties.ophthalmology.doctorExperience")}</div>
                 </div>
                 
                 <Link 
                   href="/services"
                   className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center"
                 >
-                  Learn More
+                  {t("common.learnMore")}
                   <i className="fas fa-arrow-right ml-2"></i>
                 </Link>
               </div>
@@ -273,7 +275,7 @@ export default function Home() {
                     <div className="bg-foreground w-6 h-6 rounded-full flex items-center justify-center mr-2">
                       <i className="fas fa-brain text-white text-xs"></i>
                     </div>
-                    <span className="text-sm font-medium text-foreground">Core Specialty</span>
+                    <span className="text-sm font-medium text-foreground">{t("home.specialties.coreSpecialty")}</span>
                   </div>
                 </div>
               </div>
@@ -281,52 +283,52 @@ export default function Home() {
               <div className="p-6">
                 
                 <h3 className="text-2xl font-heading font-bold text-foreground mb-3">
-                  Mental Health & Neuropsychiatry
+                  {t("home.specialties.mentalHealth.title")}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Comprehensive mental healthcare with holistic treatment approach, combining advanced psychiatric treatment with therapy and counseling for long-term healing.
+                  {t("home.specialties.mentalHealth.description")}
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Anxiety, Depression & Stress</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.mentalHealth.anxietyDepression")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Child & Adolescent Psychiatry</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.mentalHealth.childAdolescent")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">De-addiction Therapy</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.mentalHealth.deAddiction")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Memory & Cognitive Disorders</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.mentalHealth.memoryCognitive")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Family Counseling</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.mentalHealth.familyCounseling")}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="far fa-star text-foreground mr-2"></i>
-                    <span className="text-sm text-foreground">Neuropsychiatric Disorders</span>
+                    <span className="text-sm text-foreground">{t("home.specialties.mentalHealth.neuropsychiatric")}</span>
                   </div>
                 </div>
                 
                 <div className="mb-6">
-                  <div className="font-semibold text-foreground">Dr. Vinay Kumar</div>
-                  <div className="text-sm text-muted-foreground">Neuropsychiatrist & Mental Health Specialist</div>
-                  <div className="text-sm text-muted-foreground">MD (Psychiatry) - MGIMS Sevagram</div>
-                  <div className="text-sm text-muted-foreground">PGDCFT, MIPS, CHRE (UK) | Former NIMHANS, Bengaluru</div>
-                  <div className="text-sm text-muted-foreground">11+ Years Experience</div>
+                  <div className="font-semibold text-foreground">{t("home.specialties.mentalHealth.doctorName")}</div>
+                  <div className="text-sm text-muted-foreground">{t("home.specialties.mentalHealth.doctorTitle")}</div>
+                  <div className="text-sm text-muted-foreground">{t("home.specialties.mentalHealth.doctorEducation")}</div>
+                  <div className="text-sm text-muted-foreground">{t("home.specialties.mentalHealth.doctorEducation2")}</div>
+                  <div className="text-sm text-muted-foreground">{t("home.specialties.mentalHealth.doctorYears")}</div>
                 </div>
                 
                 <Link 
                   href="/services"
                   className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center"
                 >
-                  Learn More
+                  {t("common.learnMore")}
                   <i className="fas fa-arrow-right ml-2"></i>
                 </Link>
               </div>
@@ -345,10 +347,10 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">
-              Our Facilities
+              {t("home.facilities.title")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Specialized facilities designed for comprehensive eye care and mental health services
+              {t("home.facilities.description")}
             </p>
           </div>
           
@@ -357,24 +359,24 @@ export default function Home() {
               <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="fas fa-eye text-primary text-2xl"></i>
               </div>
-              <h4 className="text-xl font-heading font-semibold mb-2">Eye Care Facilities</h4>
-              <p className="text-muted-foreground">Modern operating theaters, slit lamp examination rooms, and specialized pediatric eye care areas</p>
+              <h4 className="text-xl font-heading font-semibold mb-2">{t("home.facilities.eyeCareFacilities")}</h4>
+              <p className="text-muted-foreground">{t("home.facilities.eyeCareFacilitiesDesc")}</p>
             </div>
             
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="fas fa-brain text-blue-600 text-2xl"></i>
               </div>
-              <h4 className="text-xl font-heading font-semibold mb-2">Mental Health Center</h4>
-              <p className="text-muted-foreground">Private consultation rooms, therapy spaces, and comfortable family counseling areas</p>
+              <h4 className="text-xl font-heading font-semibold mb-2">{t("home.facilities.mentalHealthCenter")}</h4>
+              <p className="text-muted-foreground">{t("home.facilities.mentalHealthCenterDesc")}</p>
             </div>
             
             <div className="text-center">
               <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="fas fa-shield-alt text-primary text-2xl"></i>
               </div>
-              <h4 className="text-xl font-heading font-semibold mb-2">Safety & Security</h4>
-              <p className="text-muted-foreground">24/7 security surveillance, emergency backup systems, and wheelchair accessible facilities</p>
+              <h4 className="text-xl font-heading font-semibold mb-2">{t("home.facilities.safetySecurity")}</h4>
+              <p className="text-muted-foreground">{t("home.facilities.safetySecurityDesc")}</p>
             </div>
           </div>
         </div>
@@ -386,10 +388,10 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-2xl lg:text-3xl font-heading font-bold text-foreground mb-4">
               <i className="fas fa-eye text-primary mr-3"></i>
-              World Sight Day 2025 - Protect Your Vision
+              {t("home.awareness.title")}
             </h2>
             <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
-              Regular eye check-ups can prevent 80% of vision loss. Book your comprehensive eye examination today and protect your precious sight.
+              {t("home.awareness.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
@@ -397,7 +399,7 @@ export default function Home() {
                 data-testid="free-screening-button"
                 onClick={() => trackEvent('free_screening', 'campaign', 'awareness_banner')}
               >
-                Free Eye Screening
+                {t("home.awareness.freeEyeScreening")}
               </button>
               <a 
                 href="tel:+919117217024" 
@@ -405,7 +407,7 @@ export default function Home() {
                 data-testid="call-info-button"
                 onClick={() => trackEvent('click_to_call', 'contact', 'awareness_banner')}
               >
-                Call for Information
+                {t("home.awareness.callForInformation")}
               </a>
             </div>
           </div>

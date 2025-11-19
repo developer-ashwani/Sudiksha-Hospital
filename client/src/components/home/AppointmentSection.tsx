@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { AppointmentConfirmation } from "@/components/ui/appointment-confirmation";
+import { useTranslation } from "@/hooks/use-translation";
 
 const appointmentSchema = z.object({
   name: z.string()
@@ -57,6 +58,7 @@ export default function AppointmentSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [appointmentData, setAppointmentData] = useState<any>(null);
+  const { t } = useTranslation();
 
   const form = useForm<AppointmentFormData>({
     resolver: zodResolver(appointmentSchema),
@@ -108,23 +110,23 @@ export default function AppointmentSection() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
-                Book Your Appointment
+                {t("home.appointment.title")}
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Schedule a consultation with our specialist doctors. Choose your preferred service, doctor, and time slot. We'll confirm your appointment within 30 minutes.
+                {t("home.appointment.description")}
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <i className="fas fa-check-circle text-primary mr-3"></i>
-                  <span>Same-day appointments available</span>
+                  <span>{t("home.appointment.sameDay")}</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-check-circle text-primary mr-3"></i>
-                  <span>Choose your preferred doctor and time</span>
+                  <span>{t("home.appointment.chooseDoctor")}</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-check-circle text-primary mr-3"></i>
-                  <span>Print confirmation with details</span>
+                  <span>{t("home.appointment.printConfirmation")}</span>
                 </div>
               </div>
             </div>
@@ -138,10 +140,10 @@ export default function AppointmentSection() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Full Name *</FormLabel>
+                          <FormLabel>{t("home.appointment.fullName")}</FormLabel>
                           <FormControl>
                             <Input 
-                              placeholder="Enter your full name" 
+                              placeholder={t("home.appointment.enterFullName")} 
                               {...field} 
                               data-testid="appointment-name"
                             />
@@ -155,10 +157,10 @@ export default function AppointmentSection() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone Number *</FormLabel>
+                          <FormLabel>{t("home.appointment.phoneNumber")}</FormLabel>
                           <FormControl>
                             <Input 
-                              placeholder="9876543210" 
+                              placeholder={t("home.appointment.enterPhone")} 
                               {...field} 
                               data-testid="appointment-phone"
                             />
@@ -174,11 +176,11 @@ export default function AppointmentSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel>{t("home.appointment.emailAddress")}</FormLabel>
                         <FormControl>
                           <Input 
                             type="email"
-                            placeholder="your.email@example.com" 
+                            placeholder={t("home.appointment.enterEmail")} 
                             {...field} 
                             data-testid="appointment-email"
                           />
@@ -194,18 +196,18 @@ export default function AppointmentSection() {
                       name="service"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Service Type *</FormLabel>
+                          <FormLabel>{t("home.appointment.serviceType")}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger data-testid="appointment-service">
-                                <SelectValue placeholder="Select service type" />
+                                <SelectValue placeholder={t("home.appointment.selectServiceType")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="eye-care">Eye Care & Ophthalmology</SelectItem>
-                              <SelectItem value="mental-health">Mental Health & Psychiatry</SelectItem>
-                              <SelectItem value="general">General Consultation</SelectItem>
-                              <SelectItem value="emergency">Emergency Consultation</SelectItem>
+                              <SelectItem value="eye-care">{t("home.appointment.eyeCare")}</SelectItem>
+                              <SelectItem value="mental-health">{t("home.appointment.mentalHealth")}</SelectItem>
+                              <SelectItem value="general">{t("home.appointment.general")}</SelectItem>
+                              <SelectItem value="emergency">{t("home.appointment.emergency")}</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -217,17 +219,17 @@ export default function AppointmentSection() {
                       name="doctor"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Doctor *</FormLabel>
+                          <FormLabel>{t("home.appointment.preferredDoctor")}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger data-testid="appointment-doctor">
-                                <SelectValue placeholder="Select a doctor" />
+                                <SelectValue placeholder={t("home.appointment.selectDoctor")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="dr-priyanka">Dr. Priyanka Sharma (Ophthalmologist)</SelectItem>
-                              <SelectItem value="dr-vinay">Dr. Vinay Kumar (Neuropsychiatrist)</SelectItem>
-                              <SelectItem value="any">Any Available Doctor</SelectItem>
+                              <SelectItem value="dr-priyanka">{t("home.appointment.drPriyankaFull")}</SelectItem>
+                              <SelectItem value="dr-vinay">{t("home.appointment.drVinayFull")}</SelectItem>
+                              <SelectItem value="any">{t("home.appointment.anyDoctor")}</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -242,7 +244,7 @@ export default function AppointmentSection() {
                       name="date"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Date *</FormLabel>
+                          <FormLabel>{t("home.appointment.preferredDate")}</FormLabel>
                           <FormControl>
                             <Input 
                               type="date"
@@ -260,11 +262,11 @@ export default function AppointmentSection() {
                       name="time"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Time *</FormLabel>
+                          <FormLabel>{t("home.appointment.preferredTime")}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger data-testid="appointment-time">
-                                <SelectValue placeholder="Select time slot" />
+                                <SelectValue placeholder={t("home.appointment.selectTimeSlot")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
@@ -291,11 +293,11 @@ export default function AppointmentSection() {
                     name="concern"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Describe Your Concern *</FormLabel>
+                        <FormLabel>{t("home.appointment.describeConcern")}</FormLabel>
                         <FormControl>
                           <Textarea 
                             rows={3}
-                            placeholder="Tell us about your symptoms or health concern..." 
+                            placeholder={t("home.appointment.enterConcern")} 
                             {...field} 
                             data-testid="appointment-concern"
                           />
@@ -320,10 +322,10 @@ export default function AppointmentSection() {
                           </FormControl>
                           <div className="space-y-1 leading-none">
                             <FormLabel>
-                              I am a previous patient
+                              {t("home.appointment.previousPatient")}
                             </FormLabel>
                             <p className="text-sm text-muted-foreground">
-                              Check if you have visited our hospital before
+                              {t("home.appointment.previousPatientDesc")}
                             </p>
                           </div>
                         </FormItem>
@@ -334,17 +336,17 @@ export default function AppointmentSection() {
                       name="preferredContact"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Contact Method *</FormLabel>
+                          <FormLabel>{t("home.appointment.preferredContact")}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger data-testid="appointment-contact-method">
-                                <SelectValue placeholder="How should we contact you?" />
+                                <SelectValue placeholder={t("home.appointment.howToContact")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="phone">Phone Call</SelectItem>
-                              <SelectItem value="whatsapp">WhatsApp</SelectItem>
-                              <SelectItem value="email">Email</SelectItem>
+                              <SelectItem value="phone">{t("home.appointment.phoneCall")}</SelectItem>
+                              <SelectItem value="whatsapp">{t("common.whatsapp")}</SelectItem>
+                              <SelectItem value="email">{t("home.appointment.emailContact")}</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -362,18 +364,18 @@ export default function AppointmentSection() {
                     {isSubmitting ? (
                       <>
                         <i className="fas fa-spinner fa-spin mr-3"></i>
-                        Booking Appointment...
+                        {t("home.appointment.bookingAppointment")}
                       </>
                     ) : (
                       <>
                         <i className="fas fa-calendar-check mr-3"></i>
-                        Book Appointment
+                        {t("home.appointment.bookAppointment")}
                       </>
                     )}
                   </Button>
                   
                   <p className="text-sm text-muted-foreground text-center">
-                    By submitting, you agree to receive appointment confirmations via your preferred contact method
+                    {t("home.appointment.submitAgreement")}
                   </p>
                 </form>
               </Form>

@@ -2,11 +2,15 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { trackEvent } from "@/lib/analytics";
 import AppointmentForm from "@/components/home/AppointmentForm";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslation } from "@/hooks/use-translation";
 
 export default function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+  const { language, changeLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const handleBookAppointment = () => {
     trackEvent('book_appointment', 'conversion', 'header');
@@ -17,12 +21,16 @@ export default function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleLanguageToggle = () => {
+    changeLanguage(language === 'en' ? 'hi' : 'en');
+  };
+
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/doctors", label: "Doctors" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
-    { href: "/blog", label: "Blog" }
+    { href: "/", label: t("common.home") },
+    { href: "/doctors", label: t("common.doctors") },
+    { href: "/services", label: t("common.services") },
+    { href: "/contact", label: t("common.contact") },
+    { href: "/blog", label: t("common.blog") }
   ];
 
   return (
@@ -36,8 +44,8 @@ export default function Header() {
               className="w-12 h-12 rounded-lg mr-3 object-contain"
             />
             <div>
-              <h1 className="text-xl font-heading font-bold text-primary">Sudiksha Hospital</h1>
-              <p className="text-xs text-muted-foreground">Mental Health & Eye Care</p>
+              <h1 className="text-xl font-heading font-bold text-primary">{t("header.hospitalName")}</h1>
+              <p className="text-xs text-muted-foreground">{t("header.tagline")}</p>
             </div>
           </Link>
           
@@ -55,12 +63,22 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            {/* Language Toggle */}
+            <button
+              onClick={handleLanguageToggle}
+              className="flex items-center gap-1 px-3 py-2 rounded-lg border border-border hover:bg-accent transition-colors"
+              aria-label="Toggle language"
+            >
+              <span className={`text-sm font-medium ${language === 'en' ? 'text-primary' : 'text-muted-foreground'}`}>EN</span>
+              <span className="text-muted-foreground">|</span>
+              <span className={`text-sm font-medium ${language === 'hi' ? 'text-primary' : 'text-muted-foreground'}`}>HI</span>
+            </button>
             <button 
               className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
               data-testid="header-book-button"
               onClick={handleBookAppointment}
             >
-              Book Appointment
+              {t("header.bookAppointment")}
             </button>
           </nav>
           
@@ -91,6 +109,18 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
+              {/* Language Toggle - Mobile */}
+              <button
+                onClick={() => {
+                  handleLanguageToggle();
+                }}
+                className="flex items-center justify-center gap-1 px-4 py-3 rounded-lg border border-border hover:bg-accent transition-colors mt-4"
+                aria-label="Toggle language"
+              >
+                <span className={`text-sm font-medium ${language === 'en' ? 'text-primary' : 'text-muted-foreground'}`}>EN</span>
+                <span className="text-muted-foreground">|</span>
+                <span className={`text-sm font-medium ${language === 'hi' ? 'text-primary' : 'text-muted-foreground'}`}>HI</span>
+              </button>
               <button 
                 className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors mt-4"
                 data-testid="mobile-book-button"
@@ -99,7 +129,7 @@ export default function Header() {
                   setIsMobileMenuOpen(false);
                 }}
               >
-                Book Appointment
+                {t("header.bookAppointment")}
               </button>
             </nav>
           </div>

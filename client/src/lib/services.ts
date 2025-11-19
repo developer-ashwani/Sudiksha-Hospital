@@ -1,3 +1,12 @@
+import { translations } from './translations';
+
+const ASSET_BASE = '/images/services';
+
+function imgPath(section: 'eye' | 'mind', name: string) {
+  // name should match the image filename (without extension)
+  return `${ASSET_BASE}/${section}/${name}.png`;
+}
+
 export interface Service {
   icon: string;
   title: string;
@@ -5,117 +14,131 @@ export interface Service {
   features: string[];
 }
 
-export const eyeServices: Service[] = [
-  {
-    icon: "fas fa-cut",
-    title: "Cataract Treatment & Surgeries",
-    description: "Advanced phacoemulsification and surgical techniques for cataract removal",
-    features: ["Phacoemulsification surgery", "Premium IOL implants", "Micro-incision techniques", "Quick recovery"]
-  },
-  {
-    icon: "fas fa-eye",
-    title: "Oculoplasty & Eyelid Surgery",
-    description: "Eyelid and orbital surgery, tear duct procedures for cosmetic and functional improvement",
-    features: ["Eyelid reconstruction", "Tear duct surgery", "Orbital procedures", "Cosmetic enhancement"]
-  },
-  {
-    icon: "fas fa-tint",
-    title: "Cornea Care & Management",
-    description: "Comprehensive treatment for degenerative, infectious, and traumatic corneal conditions",
-    features: ["Corneal transplants", "Infection treatment", "Trauma management", "Degenerative care"]
-  },
-  {
-    icon: "fas fa-search",
-    title: "Glaucoma Diagnosis",
-    description: "Early detection and comprehensive management of glaucoma conditions",
-    features: ["Pressure monitoring", "OCT imaging", "Laser therapy", "Surgical intervention"]
-  },
-  {
-    icon: "fas fa-child",
-    title: "Pediatric Eye Care",
-    description: "Specialized eye care for children including squint correction and refractive errors",
-    features: ["Squint correction", "Refractive error treatment", "Childhood screening", "Pediatric surgery"]
-  },
-  {
-    icon: "fas fa-first-aid",
-    title: "Eye Injury Management",
-    description: "Emergency and surgical care for ocular trauma and injuries",
-    features: ["Emergency treatment", "Trauma surgery", "Injury assessment", "Rehabilitation care"]
-  }
-];
+type Language = 'en' | 'hi';
 
-export const neuropsychiatryServices: Service[] = [
-  {
-    icon: "fas fa-heart",
-    title: "Anxiety, Depression & Stress",
-    description: "Comprehensive treatment for mood disorders with holistic approach",
-    features: ["Individual therapy", "Medication management", "CBT & DBT approaches", "Stress management"]
-  },
-  {
-    icon: "fas fa-hand-holding-heart",
-    title: "De-addiction Therapy",
-    description: "Specialized rehabilitation programs for addiction recovery",
-    features: ["Detoxification programs", "Counseling sessions", "Group therapy", "Relapse prevention"]
-  },
-  {
-    icon: "fas fa-child",
-    title: "Child & Adolescent Psychiatry",
-    description: "Specialized mental health care for young patients",
-    features: ["ADHD treatment", "Behavioral therapy", "Family counseling", "School interventions"]
-  },
-  {
-    icon: "fas fa-memory",
-    title: "Memory & Cognitive Disorders",
-    description: "Assessment and treatment of cognitive impairments and memory issues",
-    features: ["Dementia care", "Cognitive assessment", "Memory training", "Family support"]
-  },
-  {
-    icon: "fas fa-users",
-    title: "Family Counseling",
-    description: "Clinical family therapy and relationship counseling services",
-    features: ["Family therapy", "Couples counseling", "Parenting support", "Communication skills"]
-  },
-  {
-    icon: "fas fa-brain",
-    title: "Neuropsychiatric Disorders",
-    description: "Treatment for complex neurological and psychiatric conditions",
-    features: ["Epilepsy management", "Seizure disorders", "Complex cases", "Multidisciplinary care"]
-  },
-  {
-    icon: "fas fa-random",
-    title: "Bipolar Disorder & Mania",
-    description: "Stabilization and long-term care for mood elevation and depressive episodes",
-    features: ["Mood stabilizers", "Psychoeducation", "Crisis intervention", "Ongoing monitoring"]
-  },
-  {
-    icon: "fas fa-sync-alt",
-    title: "Obsessive-Compulsive Disorder (OCD)",
-    description: "Evidence-based treatment for intrusive thoughts and compulsive behaviors",
-    features: ["ERP therapy", "SSRIs", "Cognitive restructuring", "Habit reversal training"]
-  },
-  {
-    icon: "fas fa-venus-mars",
-    title: "Sexual Disorders",
-    description: "Confidential care for psychosexual and intimacy-related concerns",
-    features: ["Sexual dysfunction therapy", "Psychosexual counseling", "Couples therapy", "Medication support"]
-  },
-  {
-    icon: "fas fa-moon",
-    title: "Insomnia & Sleep Disorders",
-    description: "Diagnosis and treatment of chronic sleep disturbances",
-    features: ["Sleep hygiene training", "CBT-I", "Relaxation techniques", "Medication management"]
-  },
-  {
-    icon: "fas fa-puzzle-piece",
-    title: "Autism Spectrum Disorders",
-    description: "Supportive care for children and adults with ASD",
-    features: ["Behavioral therapy", "Social skills training", "Parental guidance", "Multidisciplinary coordination"]
-  },
-  {
-    icon: "fas fa-user-md",
-    title: "Schizophrenia & Psychotic Disorders",
-    description: "Comprehensive care for hallucinations, delusions, and disorganized thinking",
-    features: ["Antipsychotic treatment", "Rehabilitation programs", "Family psychoeducation", "Relapse prevention"]
-  }
-];
+export function getEyeServices(language: Language = 'en'): Service[] {
+  const t = translations[language].home.services.eyeServices;
+  
+  return [
+    {
+      icon: imgPath('eye', 'cataract'),
+      title: t.cataract.title,
+      description: t.cataract.description,
+      features: t.cataract.features
+    },
+    {
+      icon: imgPath('eye', 'oculoplasty'),
+      title: t.oculoplasty.title,
+      description: t.oculoplasty.description,
+      features: t.oculoplasty.features
+    },
+    {
+      icon: imgPath('eye', 'cornea'),
+      title: t.cornea.title,
+      description: t.cornea.description,
+      features: t.cornea.features
+    },
+    {
+      icon: imgPath('eye', 'glaucoma'),
+      title: t.glaucoma.title,
+      description: t.glaucoma.description,
+      features: t.glaucoma.features
+    },
+    {
+      icon: imgPath('eye', 'pediatric'),
+      title: t.pediatric.title,
+      description: t.pediatric.description,
+      features: t.pediatric.features
+    },
+    {
+      icon: imgPath('eye', 'eye-injury'),
+      title: t.injury.title,
+      description: t.injury.description,
+      features: t.injury.features
+    }
+  ];
+}
+
+export function getNeuropsychiatryServices(language: Language = 'en'): Service[] {
+  const t = translations[language].home.services.neuropsychiatryServices;
+  
+  return [
+    {
+      icon: imgPath('mind', 'anxiety'),
+      title: t.anxiety.title,
+      description: t.anxiety.description,
+      features: t.anxiety.features
+    },
+    {
+      icon: imgPath('mind', 'de-addiction-therapy'),
+      title: t.deAddiction.title,
+      description: t.deAddiction.description,
+      features: t.deAddiction.features
+    },
+    {
+      icon: imgPath('mind', 'child-adolescent psychiatry'),
+      title: t.childPsychiatry.title,
+      description: t.childPsychiatry.description,
+      features: t.childPsychiatry.features
+    },
+    {
+      icon: imgPath('mind', 'memory-cognitive-disorders'),
+      title: t.memory.title,
+      description: t.memory.description,
+      features: t.memory.features
+    },
+    {
+      icon: imgPath('mind', 'family-counseling'),
+      title: t.familyCounseling.title,
+      description: t.familyCounseling.description,
+      features: t.familyCounseling.features
+    },
+    {
+      icon: imgPath('mind', 'neuropsychiatric-disorders'),
+      title: t.neuropsychiatric.title,
+      description: t.neuropsychiatric.description,
+      features: t.neuropsychiatric.features
+    },
+    {
+      icon: imgPath('mind', 'bipolar-disorder-mania'),
+      title: t.bipolar.title,
+      description: t.bipolar.description,
+      features: t.bipolar.features
+    },
+    {
+      icon: imgPath('mind', 'obsessive-compulsive-disorder'),
+      title: t.ocd.title,
+      description: t.ocd.description,
+      features: t.ocd.features
+    },
+    {
+      icon: imgPath('mind', 'sexual-disorders'),
+      title: t.sexual.title,
+      description: t.sexual.description,
+      features: t.sexual.features
+    },
+    {
+      icon: imgPath('mind', 'insomnia-sleep-disorders'),
+      title: t.insomnia.title,
+      description: t.insomnia.description,
+      features: t.insomnia.features
+    },
+    {
+      icon: imgPath('mind', 'autism-spectrum-disorders'),
+      title: t.autism.title,
+      description: t.autism.description,
+      features: t.autism.features
+    },
+    {
+      icon: imgPath('mind', 'schizophrenia'),
+      title: t.schizophrenia.title,
+      description: t.schizophrenia.description,
+      features: t.schizophrenia.features
+    }
+  ];
+}
+
+// Legacy exports for backward compatibility (default to English)
+export const eyeServices = getEyeServices('en');
+export const neuropsychiatryServices = getNeuropsychiatryServices('en');
 

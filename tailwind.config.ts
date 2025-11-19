@@ -63,10 +63,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        sans: ['"Noto Sans Devanagari"', 'Inter', 'system-ui', 'sans-serif'],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
-        heading: ["var(--font-heading)"],
+        heading: ['"Noto Sans Devanagari"', 'Inter', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
