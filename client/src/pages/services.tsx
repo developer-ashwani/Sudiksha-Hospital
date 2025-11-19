@@ -3,6 +3,7 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import AppointmentForm from "@/components/home/AppointmentForm";
 import { eyeServices, neuropsychiatryServices } from "@/lib/services";
+import ServicesGrid from "@/components/home/ServicesGrid";
 import { useTranslation } from "@/hooks/use-translation";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -26,83 +27,11 @@ export default function Services() {
   };
 
   return (
+
+    <div>
+     <ServicesGrid />
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
-            Our Medical Services
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive healthcare services with specialized departments for complete patient care
-          </p>
-        </div>
-
-        {/* Eye Care Services - Dr. Priyanka Sharma */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-heading font-bold text-primary mb-8 text-center">Eye Care Services - Dr. Priyanka Sharma</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {eyeServices.map((service, index) => (
-                      <div key={index} className="bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                        <div className="overflow-hidden rounded-lg mb-4">
-                          <img
-                            src={service.icon}
-                            alt={service.title}
-                            className="w-full h-48 sm:h-56 md:h-64 object-cover block"
-                              />
-                        </div>
-                        <h4 className="text-xl font-heading font-semibold mb-3">{service.title}</h4>
-                        <p className="text-muted-foreground mb-4">{service.description}</p>
-                        <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx}>• {feature}</li>
-                  ))}
-                </ul>
-                <Link
-                  href="/services"
-                  className="text-primary font-medium hover:underline"
-                  data-testid={`learn-more-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={() => handleServiceLearnMore(service.title)}
-                >
-                  {t("common.learnMore")} →
-                </Link>
-              </div>
-                       ))}
-          </div>
-        </div>
-
-        {/* Mental Health Services - Dr. Vinay Kumar */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-heading font-bold text-blue-600 mb-8 text-center">Mental Health Services - Dr. Vinay Kumar</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-             {neuropsychiatryServices.map((service, index) => (
-              <div key={index} className="bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                 <div className="overflow-hidden rounded-lg mb-4">
-              <img
-                src={service.icon}
-                alt={service.title}
-                className="w-full h-48 sm:h-56 md:h-64 object-cover block"
-                  />
-            </div>
-                <h4 className="text-xl font-heading font-semibold mb-3">{service.title}</h4>
-                <p className="text-muted-foreground mb-4">{service.description}</p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx}>• {feature}</li>
-                  ))}
-                </ul>
-                <Link 
-                  href="/services"
-                  className="text-blue-600 font-medium hover:underline"
-                  data-testid={`learn-more-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={() => handleServiceLearnMore(service.title)}
-                >
-                  Learn More →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Emergency Services */}
         <div className="bg-white rounded-2xl p-12 mb-16 shadow-lg border border-gray-100">
           <div className="text-center">
@@ -188,12 +117,14 @@ export default function Services() {
         </div>
       </div>
       
+      
       {/* Appointment Modal */}
       <AppointmentForm 
         isOpen={isAppointmentModalOpen}
         onClose={() => setIsAppointmentModalOpen(false)}
         selectedDoctor={selectedDoctor}
       />
+    </div>
     </div>
   );
 }
